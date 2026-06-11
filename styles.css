@@ -1655,3 +1655,193 @@ h1 .accent {
   .cs-label { font-size: 0.85rem; }
 }
 
+
+/* =========================================================================
+   eSIM QR Tool
+   ========================================================================= */
+.qr-tool { margin-top: 24px; }
+.qr-tool .section-title { margin-top: 24px; }
+.qr-tool .section-title:first-child { margin-top: 0; }
+
+.qr-tip {
+  margin: 8px 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.qr-tip code,
+.qr-tool label code,
+.qr-lpa code,
+.qr-tool p code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background: rgba(67, 56, 202, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--primary);
+  font-size: 0.85em;
+}
+
+.qr-tool textarea,
+.qr-tool input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin: 6px 0 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-2);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.qr-tool textarea {
+  min-height: 78px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.qr-tool input[type="text"]:focus,
+.qr-tool textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
+}
+.qr-tool label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 12px 0 4px;
+}
+
+.qr-tool button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  font-family: inherit;
+}
+.qr-tool button.primary {
+  background: linear-gradient(135deg, #4338CA 0%, #ea580c 100%);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(67, 56, 202, 0.25);
+}
+.qr-tool button.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(67, 56, 202, 0.35);
+}
+.qr-tool button.outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+.qr-tool button.outline:hover {
+  background: rgba(67, 56, 202, 0.08);
+}
+
+.qr-tool button + button { margin-left: 8px; }
+
+.qr-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.qr-divider::before,
+.qr-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.qr-err {
+  margin: 12px 0 0;
+  min-height: 1.4em;
+  color: #b91c1c;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.qr-result {
+  margin-top: 18px;
+  padding: 28px 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper-2);
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qr-result canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.qr-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.qr-lpa {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(67, 56, 202, 0.05) 0%, rgba(234, 88, 12, 0.05) 100%);
+  border: 1px solid var(--line);
+}
+.qr-lpa-label {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.qr-lpa-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.qr-lpa code {
+  flex: 1;
+  min-width: 0;
+  word-break: break-all;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.qr-lpa button.copy {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.qr-lpa button.copy:hover { background: #3128a8; }
+.qr-lpa-hint {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
