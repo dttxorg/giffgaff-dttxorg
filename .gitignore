@@ -1,0 +1,25 @@
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# 不要部署到网站的文件（这些是给你本地看的）
+/feishu-doc-bundle/
+/feishu/
+/README.md
+/CLAUDE.md
+/AGENTS.md
+*.bak
+*.tmp
+*.log
+
+# 临时
+/tmp/
+*.zip
+*.tar.gz
+*.rar
+*.7z

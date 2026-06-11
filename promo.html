@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="giffgaff 英国电话卡 — 0 月租、免费收短信、保号简单、可在华漫游。">
+    <title>giffgaff 英国电话卡 · 产品介绍</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      /* 宣传图专用：自包含、不带外链、不带价格数字 */
+      .promo-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 0 14px;
+        position: relative;
+      }
+      .promo-topbar .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 900;
+        font-size: 1rem;
+        color: var(--ink);
+      }
+      .promo-topbar .pill {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      /* 头条 */
+      .promo-hero {
+        position: relative;
+        padding: 36px 24px 30px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background:
+          radial-gradient(120% 80% at 100% 0%, rgba(99, 102, 241, 0.12), transparent 60%),
+          radial-gradient(80% 60% at 0% 100%, rgba(251, 146, 60, 0.10), transparent 60%),
+          rgba(255, 255, 255, 0.96);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        isolation: isolate;
+        text-align: center;
+      }
+      .promo-hero::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        right: -20%;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.22), transparent 70%);
+        z-index: -1;
+        animation: pulse-glow 5s ease-in-out infinite;
+      }
+      .promo-hero h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(2rem, 7.5vw, 2.6rem);
+        line-height: 1.1;
+      }
+      .promo-hero .lead {
+        margin: 0 auto;
+        max-width: 28ch;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+      .promo-hero .badges {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 18px;
+      }
+      .promo-hero .badges span {
+        padding: 6px 12px;
+        border: 1px solid rgba(67, 56, 202, 0.22);
+        border-radius: 999px;
+        color: var(--primary-dark);
+        background: var(--paper-2);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      /* 三个选择（无价格） */
+      .promo-choices {
+        display: grid;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .promo-choice {
+        position: relative;
+        padding: 18px 18px 18px 64px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow-sm);
+        transition: all 0.4s var(--ease);
+      }
+      .promo-choice:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+        border-color: rgba(99, 102, 241, 0.3);
+      }
+      .promo-choice .badge {
+        position: absolute;
+        left: 16px;
+        top: 18px;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        color: #fff;
+        background: var(--grad-1);
+        font-weight: 900;
+        font-size: 0.82rem;
+        box-shadow: 0 6px 16px var(--primary-glow);
+      }
+      .promo-choice.recommend .badge {
+        background: var(--grad-2);
+        box-shadow: 0 6px 16px var(--accent-glow);
+      }
+      .promo-choice .tag {
+        display: inline-block;
+        margin-bottom: 4px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--accent);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+      .promo-choice.recommend .tag {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        color: #fff;
+      }
+      .promo-choice h3 {
+        margin: 0 0 4px;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .promo-choice p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      @media (min-width: 640px) {
+        .promo-choices { grid-template-columns: 1fr 1fr 1fr; }
+        .promo-choice { padding: 18px 16px 18px 58px; }
+        .promo-choice .badge { left: 14px; top: 16px; }
+      }
+
+      /* 保号说明卡（宣传图专用：默认展开、无折叠交互） */
+      .keepalive-card {
+        display: grid;
+        gap: 12px;
+        padding: 22px 20px;
+        margin-top: 4px;
+        border: 1px solid rgba(67, 56, 202, 0.18);
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(251, 146, 60, 0.06) 100%), #fff;
+        text-align: center;
+      }
+      .keepalive-headline {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+      .keepalive-headline strong {
+        display: inline-block;
+        padding: 1px 10px;
+        margin: 0 2px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--accent);
+        font-weight: 900;
+        font-feature-settings: "tnum";
+      }
+      .keepalive-cost {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: var(--grad-1);
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        box-shadow: 0 6px 18px var(--primary-glow);
+      }
+      .keepalive-cost strong {
+        font-size: 1.1rem;
+        font-feature-settings: "tnum";
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-aurora" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="promo-topbar reveal">
+        <span class="brand">
+          <span class="avatar-ring">
+            <img src="./assets/avatar.jpg" alt="" width="38" height="38">
+          </span>
+          <span>giffgaff</span>
+        </span>
+        <span class="pill">产品介绍</span>
+      </header>
+
+      <section class="promo-hero reveal">
+        <p class="kicker">英国手机号 · 国内长期持有</p>
+        <h1>giffgaff <span class="accent">英国电话卡</span></h1>
+        <p class="lead">专为长期持有设计，注册海外 App、接收短信验证码、低成本保号，一卡搞定。</p>
+        <div class="badges" aria-label="核心优势">
+          <span>0 月租</span>
+          <span>免费收短信</span>
+          <span>无需实名</span>
+          <span>可漫游</span>
+        </div>
+      </section>
+
+      <section class="benefits reveal-stagger" aria-label="核心优势">
+        <article>
+          <span>01</span>
+          <div class="body">
+            <h2>0 月租，免费收短信</h2>
+            <p>没有固定月租压力，适合主要用来接收验证码和保留英国号码。</p>
+          </div>
+        </article>
+        <article>
+          <span>02</span>
+          <div class="body">
+            <h2>保号简单</h2>
+            <p>每 6 个月主动发 1 条短信即可保持号码活跃，长期维护成本低。</p>
+          </div>
+        </article>
+        <article>
+          <span>03</span>
+          <div class="body">
+            <h2>可在华漫游，资费透明</h2>
+            <p>人在国内也能漫游使用，通话、短信、流量按 giffgaff 官方资费执行。</p>
+          </div>
+        </article>
+        <article>
+          <span>04</span>
+          <div class="body">
+            <h2>可注册众多国际主流 App 和服务</h2>
+            <p>英国号码适合注册和绑定海外服务，且无需国内实名。</p>
+          </div>
+        </article>
+        <article>
+          <span>05</span>
+          <div class="body">
+            <h2>价格实在，适合国内长期使用</h2>
+            <p>一次购卡，后续按需充值和保号，适合长期持有英国手机号。</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="reveal" aria-label="三种选择">
+        <div class="section-title">
+          <p>选择</p>
+          <h2>三种购买方式</h2>
+        </div>
+        <div class="promo-choices">
+          <div class="promo-choice">
+            <span class="badge">A</span>
+            <span class="tag">省心自激活</span>
+            <h3>giffgaff 激活码</h3>
+            <p>6 位激活码 + 自助教程，按官方流程激活，开卡即送 5 英镑奖励，无实体卡。</p>
+          </div>
+          <div class="promo-choice">
+            <span class="badge">B</span>
+            <span class="tag">充值服务</span>
+            <h3>代充 10 英镑</h3>
+            <p>已有 giffgaff 号的，代充 10 英镑到账。</p>
+          </div>
+          <div class="promo-choice recommend">
+            <span class="badge">★</span>
+            <span class="tag">省心推荐</span>
+            <h3>已激活 esim 卡</h3>
+            <p>发货 eSIM 可写入卡，一张卡可写入多个 giffgaff 号码，换号不换卡，含 15 英镑余额。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq reveal" aria-labelledby="faq-title">
+        <div class="section-title">
+          <p>常见问题</p>
+          <h2 id="faq-title">保号怎么操作？</h2>
+        </div>
+
+        <div class="keepalive-card">
+          <p class="keepalive-headline">每 <strong>180 天</strong>，用自己的 gg 号给自己的 gg 号发一条短信（任意内容）就完成保号。</p>
+          <p class="keepalive-cost">费用：<strong>0.3 英镑 / 条</strong></p>
+        </div>
+      </section>
+
+      <footer class="site-footer reveal">
+        <p>© giffgaff · 具体资费、漫游和保号规则以 giffgaff 官方最新说明为准。</p>
+      </footer>
+    </main>
+
+    <script>
+      // 滚动入场
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

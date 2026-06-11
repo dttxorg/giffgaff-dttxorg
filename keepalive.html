@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>giffgaff 保号和资费 · 180 天免费方案</title>
+    <meta name="description" content="giffgaff 保号方法、资费表、0 月租怎么玩。180 天发 1 条短信保号，成本约 0.3 英镑。">
+    <link rel="stylesheet" href="./styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R20PEX1LN4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R20PEX1LN4");
+    </script>
+  </head>
+  <body>
+    <div class="bg-aurora" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar reveal">
+        <a class="seller" href="./index.html">
+          <span class="avatar-ring">
+            <img src="./assets/avatar.jpg" alt="" width="46" height="46">
+          </span>
+          <span>返回首页</span>
+        </a>
+        <nav class="nav no-mobile" aria-label="主导航">
+          <a href="./index.html">首页</a>
+          <a href="./activation.html">激活教程</a>
+          <a href="./keepalive.html">保号资费</a>
+          <a href="./voicemail.html">语音信箱</a>
+        </nav>
+      </header>
+
+      <section class="hero-card reveal">
+        <p class="kicker">Keep alive</p>
+        <h1>保号 <span class="accent">和资费</span></h1>
+        <p class="hero-text">核心保号方式很简单：每 6 个月主动发 1 条短信，让号码保持活跃。</p>
+      </section>
+
+      <section class="benefits reveal-stagger">
+        <article>
+          <span>保号</span>
+          <div class="body">
+            <h2>每 180 天发 1 条短信</h2>
+            <p>从激活开始算起，每 180 天用自己的 gg 号给自己的 gg 号发一条任意内容的短信。成功发送短信会收到余额变动提醒短信，只要话费余额有变动就算保号成功。</p>
+          </div>
+        </article>
+        <article>
+          <span>资费</span>
+          <div class="body">
+            <h2>在华漫游资费</h2>
+            <p>● 接收短信：免费。</p>
+            <p>● 发送短信：0.3 英镑/条。</p>
+            <p>● 接听/拨打电话：1 英镑/分钟。</p>
+            <p>● 数据上网：0.2 英镑/MB（约合 200 英镑/GB，极贵，不建议使用）。</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer reveal">
+        <p>© giffgaff · 具体资费、漫游和保号规则以 giffgaff 官方最新说明为准。</p>
+      </footer>
+    </main>
+
+    <div class="floating-actions no-mobile" aria-label="快捷操作">
+      <a class="fab-tg" href="https://t.me/+bFyFarhr_IY0Nzk5" target="_blank" rel="noopener" title="电报群">✈</a>
+      <a class="fab-top" href="./index.html#order" title="立即下单">↓</a>
+    </div>
+
+    <script>
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) => io.observe(el));
+
+      const progressBar = document.querySelector(".scroll-progress");
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+        progressBar.style.width = (scrolled * 100) + "%";
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+    </script>
+  </body>
+</html>

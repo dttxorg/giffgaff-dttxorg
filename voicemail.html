@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>giffgaff 关闭语音信箱 · 避免漏接电话</title>
+    <meta name="description" content="giffgaff 关闭语音信箱的 3 种方法：拨打 443、APP 设置、短信代码。避免漏接电话和扣费。">
+    <link rel="stylesheet" href="./styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R20PEX1LN4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R20PEX1LN4");
+    </script>
+  </head>
+  <body>
+    <div class="bg-aurora" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar reveal">
+        <a class="seller" href="./index.html">
+          <span class="avatar-ring">
+            <img src="./assets/avatar.jpg" alt="" width="46" height="46">
+          </span>
+          <span>返回首页</span>
+        </a>
+        <nav class="nav no-mobile" aria-label="主导航">
+          <a href="./index.html">首页</a>
+          <a href="./activation.html">激活教程</a>
+          <a href="./keepalive.html">保号资费</a>
+          <a href="./voicemail.html">语音信箱</a>
+        </nav>
+      </header>
+
+      <section class="hero-card reveal">
+        <p class="kicker">Voicemail</p>
+        <h1>关闭 <span class="accent">语音信箱</span></h1>
+        <p class="hero-text">人在英国以外时，建议联系 giffgaff 客服手动关闭语音信箱，避免拒接电话后可能产生漫游扣费。</p>
+      </section>
+
+      <section class="tutorial-steps reveal-stagger">
+        <article>
+          <span>1</span>
+          <div class="body">
+            <h2>打开 Ask an Agent 页面</h2>
+            <p><a href="https://support2.giffgaff.com/app/ask/International-and-Roaming/Accessing-voicemail-while-abroad/form/" target="_blank" rel="noopener">进入 giffgaff 客服表单</a>，登录你的 giffgaff 账户后继续。</p>
+          </div>
+        </article>
+        <article>
+          <span>2</span>
+          <div class="body">
+            <h2>发送关闭请求</h2>
+            <p>可以把下面这段英文发给客服，点击英文可复制：</p>
+            <button class="copy-text" type="button" data-copy="Hello, I am outside the UK. Please fully disable voicemail on my giffgaff account to avoid roaming charges, as I cannot turn it off myself from abroad. Thank you.">Hello, I am outside the UK. Please fully disable voicemail on my giffgaff account to avoid roaming charges, as I cannot turn it off myself from abroad. Thank you.</button>
+            <p class="copy-tip" aria-live="polite"></p>
+          </div>
+        </article>
+        <article>
+          <span>3</span>
+          <div class="body">
+            <h2>等待邮件确认</h2>
+            <p>提交后等待客服处理，通常 24 小时内会通过邮件确认。</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer reveal">
+        <p>© giffgaff · 具体资费、漫游和保号规则以 giffgaff 官方最新说明为准。</p>
+      </footer>
+    </main>
+
+    <div class="floating-actions no-mobile" aria-label="快捷操作">
+      <a class="fab-tg" href="https://t.me/+bFyFarhr_IY0Nzk5" target="_blank" rel="noopener" title="电报群">✈</a>
+      <a class="fab-top" href="./index.html#order" title="立即下单">↓</a>
+    </div>
+
+    <script>
+      const copyButton = document.querySelector(".copy-text");
+      const copyTip = document.querySelector(".copy-tip");
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(copyButton.dataset.copy);
+          copyTip.textContent = "✓ 已复制，可以粘贴给客服。";
+        } catch (e) {
+          copyTip.textContent = "复制失败，请手动选择文本。";
+        }
+        setTimeout(() => { copyTip.textContent = ""; }, 2200);
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) => io.observe(el));
+
+      const progressBar = document.querySelector(".scroll-progress");
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+        progressBar.style.width = (scrolled * 100) + "%";
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+    </script>
+  </body>
+</html>
