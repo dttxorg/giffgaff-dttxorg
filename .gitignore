@@ -23,3 +23,7 @@ Thumbs.db
 *.tar.gz
 *.rar
 *.7z
+
+# APK 文件（你下载到 downloads/ 之后告诉我路径，我单独加到 git）
+# 当前仓库不跟踪任何 .apk，避免误提交大文件
+/downloads/*.apk
