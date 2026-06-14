@@ -1845,3 +1845,47 @@ h1 .accent {
   color: var(--muted);
   line-height: 1.6;
 }
+
+/* =========================================================================
+   APK 下载页 · 多源切换
+   ========================================================================= */
+.mirror-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(67, 56, 202, 0.04);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.mirror-link:hover {
+  background: rgba(67, 56, 202, 0.08);
+  border-color: var(--primary);
+}
+.mirror-link.fastest {
+  background: linear-gradient(135deg, rgba(67, 56, 202, 0.12), rgba(234, 88, 12, 0.1));
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.1);
+}
+.mirror-link.fastest::after {
+  content: "推荐";
+  background: linear-gradient(135deg, #ea580c, #fde68a);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+.mirror-status {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+.mirror-link.fastest .mirror-status { color: var(--primary); }
