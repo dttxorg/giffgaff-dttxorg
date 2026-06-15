@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="giffgaff 英国电话卡，0 月租、免费收短信、保号简单、可在华漫游，适合国内长期使用。">
     <title>giffgaff 英国电话卡</title>
+    <link rel="icon" href="./assets/avatar.jpg" type="image/jpeg">
     <link rel="stylesheet" href="./styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R20PEX1LN4"></script>
     <script>
@@ -136,7 +137,7 @@
               <span class="arrow">→</span>
             </a>
             <a href="./faq.html">
-              <span><strong style="color:var(--primary)">完整常见问题（12 条）</strong></span>
+              <span><strong style="color:var(--primary)">完整常见问题（17 条）</strong></span>
               <span class="arrow">→</span>
             </a>
             <a href="https://www.giffgaff.com/activate" target="_blank" rel="noopener">
@@ -295,6 +296,10 @@
 
       // 价格卡片 3D 倾斜 + 点击跳转
       document.querySelectorAll(".price-item").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          // 进入时关掉 transform 过渡，避免 3D 倾斜有拖尾
+          card.style.transition = "none";
+        });
         card.addEventListener("mousemove", (e) => {
           const rect = card.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -303,12 +308,14 @@
         });
         card.addEventListener("mouseleave", () => {
           card.style.transform = "";
+          // 离开时恢复 transition（hover 的 translateY/scale 还能用）
+          card.style.transition = "";
         });
-        // 点击卡片 → 滚到联系区
+        // 点击卡片 → 滚到下单区
         card.addEventListener("click", (e) => {
           if (e.target.closest("a")) return; // 内嵌链接不触发
-          const contact = document.querySelector("#contact, .col-right");
-          if (contact) contact.scrollIntoView({ behavior: "smooth", block: "start" });
+          const order = document.querySelector("#order");
+          if (order) order.scrollIntoView({ behavior: "smooth", block: "start" });
         });
         card.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
