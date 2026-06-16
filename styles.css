@@ -371,7 +371,9 @@ h1 .accent {
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.4s var(--ease);
+  /* 显式声明：只过渡非 transform 属性，避免与 JS 3D 倾斜的 transform 互相打架 */
+  transition: border-color 0.4s var(--ease),
+              box-shadow 0.4s var(--ease);
   will-change: transform;
 }
 .price-item:focus-visible {
