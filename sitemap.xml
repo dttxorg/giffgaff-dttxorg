@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://你的域名/esim-qr.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://你的域名/keepalive.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
