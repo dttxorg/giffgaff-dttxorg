@@ -51,26 +51,34 @@
           <section class="price-panel reveal" aria-labelledby="price-title">
             <div class="section-title">
               <p>价格</p>
-              <h2 id="price-title">两种选择</h2>
+              <h2 id="price-title">三种选择</h2>
             </div>
             <div class="price-item" role="button" tabindex="0">
               <div class="price-text">
                 <p class="tag">已激活 eSIM</p>
                 <h3>已激活 esim 卡</h3>
                 <p>发货 eSIM 可写入卡 · 含 10 英镑余额。</p>
-                <a class="self-activate" href="https://weidian.com/item.html?itemID=7783850247" target="_blank" rel="noopener">微店购买 →</a>
+                <p class="gift">附赠：保号微信提醒服务</p>
               </div>
-              <strong><span class="price-anim">¥188</span></strong>
+              <strong><span class="price-anim">¥160</span></strong>
             </div>
             <div class="price-item primary" role="button" tabindex="0">
               <div class="price-text">
                 <p class="tag">省心推荐</p>
                 <h3>已激活 esim 卡</h3>
                 <p>发货 eSIM 可写入卡 · 一张卡可写入多个 giffgaff 号码，换号不换卡 · 含 15 英镑余额。</p>
-                <a class="self-activate" href="https://weidian.com/item.html?itemID=7783850247" target="_blank" rel="noopener">微店购买 →</a>
+                <p class="gift">附赠：保号微信提醒服务</p>
               </div>
-              <strong><span class="price-anim">¥228</span></strong>
+              <strong><span class="price-anim">¥188</span></strong>
             </div>
+            <button class="price-item price-item--service wechat-trigger" type="button" data-qr="./assets/wechat-qr.jpg" data-name="猫不肥" data-handle="oscar_2026year" aria-label="保号微信提醒服务 加微信客服">
+              <div class="price-text">
+                <p class="tag">增值服务</p>
+                <h3>保号微信提醒</h3>
+                <p>到号前微信提醒保号，不会忘被销号。已购卡用户也可单独加购。</p>
+              </div>
+              <strong><span class="price-anim">¥5</span></strong>
+            </button>
           </section>
 
           <section class="benefits reveal-stagger" aria-label="核心优势">
@@ -191,11 +199,15 @@
               <p>下单</p>
               <h2 id="order-title">下单渠道</h2>
             </div>
-<div class="qr-card" aria-label="微店小程序二维码">
+            <div class="qr-card" aria-label="微店小程序二维码">
               <img class="qr-image" src="./assets/weidian-qr.png" alt="微店小程序二维码" width="180" height="180" loading="lazy">
               <p>微信扫一扫 · 微店小程序二维码</p>
             </div>
-            <p class="link-text">长按识别二维码 · 微信内打开小程序</p>
+            <div class="qr-card" aria-label="京东店铺二维码">
+              <img class="qr-image" src="./assets/jd-qr.jpg" alt="京东店铺二维码" width="180" height="180" loading="lazy">
+              <p>微信扫一扫 · 京东「计卡小铺」</p>
+            </div>
+            <p class="link-text">长按识别二维码 · 微店 / 京东 任选</p>
           </section>
 
           <section class="contact-box reveal" aria-labelledby="contact-title">
@@ -288,9 +300,10 @@
           // 离开时恢复 transition（hover 的 translateY/scale 还能用）
           card.style.transition = "";
         });
-        // 点击卡片 → 滚到下单区
+        // 点击卡片 → 滚到下单区（服务类卡片除外，由微信弹窗处理）
         card.addEventListener("click", (e) => {
           if (e.target.closest("a")) return; // 内嵌链接不触发
+          if (e.currentTarget.classList.contains("wechat-trigger")) return; // 微信弹窗卡片不滚到下单区
           const order = document.querySelector("#order");
           if (order) order.scrollIntoView({ behavior: "smooth", block: "start" });
         });

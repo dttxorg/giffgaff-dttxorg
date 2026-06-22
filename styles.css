@@ -429,6 +429,21 @@ h1 .accent {
   font-size: 0.92rem;
   line-height: 1.55;
 }
+.price-item .gift {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(234, 88, 12, 0.12);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.price-item.price-item--service { text-align: left; }
+.price-item.price-item--service h3 { font-size: 1.05rem; }
 .price-item strong {
   color: var(--ink);
   font-size: 2.2rem;
