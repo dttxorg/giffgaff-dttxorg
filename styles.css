@@ -442,7 +442,6 @@ h1 .accent {
   font-weight: 600;
   line-height: 1.4;
 }
-.price-item.price-item--service { text-align: left; }
 .price-item.price-item--service h3 { font-size: 1.05rem; }
 .price-item strong {
   color: var(--ink);

@@ -53,15 +53,16 @@
               <p>价格</p>
               <h2 id="price-title">三种选择</h2>
             </div>
-            <a class="price-item price-item--service" href="https://baohao.681218.xyz" target="_blank" rel="noopener" aria-label="保号微信提醒服务 了解详情">
+            <div class="price-item price-item--service" role="button" tabindex="0">
               <div class="price-text">
                 <p class="tag">增值服务</p>
                 <h3>保号微信提醒</h3>
                 <p>到号前 Sever酱 / Bark 自动推送提醒，不用记日子。已购卡用户也可单独加购。</p>
-                <span class="self-activate">链动购买 →</span>
+                <a class="self-activate" href="https://baohao.681218.xyz" target="_blank" rel="noopener">查看详情 →</a>
+                <a class="self-activate" href="https://pay.ldxp.cn/item/2to4iw" target="_blank" rel="noopener">链动购买 →</a>
               </div>
               <strong><span class="price-anim">¥5</span></strong>
-            </a>
+            </div>
             <div class="price-item" role="button" tabindex="0">
               <div class="price-text">
                 <p class="tag">已激活 eSIM</p>
@@ -301,10 +302,10 @@
           // 离开时恢复 transition（hover 的 translateY/scale 还能用）
           card.style.transition = "";
         });
-        // 点击卡片 → 滚到下单区（服务类卡片除外，由微信弹窗处理）
+        // 点击卡片 → 滚到下单区（服务类卡片除外，由内嵌文字链跳转）
         card.addEventListener("click", (e) => {
           if (e.target.closest("a")) return; // 内嵌链接不触发
-          if (e.currentTarget.classList.contains("wechat-trigger")) return; // 微信弹窗卡片不滚到下单区
+          if (e.currentTarget.classList.contains("price-item--service")) return; // 服务类卡片不滚到下单区
           const order = document.querySelector("#order");
           if (order) order.scrollIntoView({ behavior: "smooth", block: "start" });
         });
