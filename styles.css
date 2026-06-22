@@ -691,6 +691,7 @@ h1 .accent {
   display: block;
   width: 180px;
   height: 180px;
+  object-fit: contain; /* 适配竖长/横长二维码，contain 模式不拉伸 */
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
