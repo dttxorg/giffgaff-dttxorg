@@ -79,7 +79,7 @@
                 <p>发货 eSIM 可写入卡 · 一张卡可写入多个 giffgaff 号码，换号不换卡 · 含 15 英镑余额。</p>
                 <p class="gift">附赠：保号微信提醒服务</p>
               </div>
-              <strong><span class="price-anim">¥188</span></strong>
+              <strong><span class="price-anim">¥198</span></strong>
             </div>
           </section>
 
@@ -290,17 +290,21 @@
 
       // 价格卡片 3D 倾斜 + 点击跳转
       document.querySelectorAll(".price-item").forEach((card) => {
+        const isPrimary = card.classList.contains("primary");
         card.addEventListener("mouseenter", () => {
+          if (isPrimary) return; // X Premium 黑底卡片不做 3D 倾斜
           // 进入时关掉 transform 过渡，避免 3D 倾斜有拖尾
           card.style.transition = "none";
         });
         card.addEventListener("mousemove", (e) => {
+          if (isPrimary) return;
           const rect = card.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
           const y = (e.clientY - rect.top) / rect.height - 0.5;
           card.style.transform = `translateY(-3px) perspective(800px) rotateX(${-y * 5}deg) rotateY(${x * 6}deg)`;
         });
         card.addEventListener("mouseleave", () => {
+          if (isPrimary) return;
           card.style.transform = "";
           // 离开时恢复 transition（hover 的 translateY/scale 还能用）
           card.style.transition = "";
