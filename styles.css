@@ -1307,6 +1307,13 @@ h1 .accent {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #fff;
 }
+.contact-list .icon.telegram-icon {
+  background: linear-gradient(135deg, #229ED9 0%, #0088cc 100%);
+  color: #fff;
+}
+.contact-list a:hover .icon.telegram-icon {
+  background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+}
 .contact-hint {
   margin: 8px 4px 0;
   color: var(--muted);
