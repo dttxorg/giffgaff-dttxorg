@@ -374,6 +374,32 @@
   line-height: 1.72;
   white-space: pre-wrap;
 }
+.script-summary-zh {
+  padding: 18px clamp(18px, 4vw, 30px);
+  border-top: 1px solid #dfe3e8;
+  background: #eef3ff;
+}
+.script-summary-zh span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--refund-blue);
+  font-size: .7rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+}
+.script-summary-zh p {
+  margin: 0;
+  color: #39445a;
+  font-size: .86rem;
+  font-weight: 680;
+  line-height: 1.72;
+}
+.script-summary-zh--dark {
+  border-top-color: #353940;
+  background: #202329;
+}
+.script-summary-zh--dark span { color: var(--refund-yellow); }
+.script-summary-zh--dark p { color: #c7ccd3; }
 .script-tip { margin: 0; padding: 15px 18px; color: #5f4f00; background: #fff8c4; font-size: .82rem; line-height: 1.55; }
 .evidence-checklist {
   display: grid;
@@ -397,6 +423,32 @@
 .evidence-checklist input { width: 18px; height: 18px; accent-color: var(--refund-yellow); }
 
 .rejected-section { background: #fffdf3; border-color: #eadc96; }
+.rejected-heading-row {
+  display: grid;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+.rejected-heading-row .section-heading { margin-bottom: 0; }
+.complaint-hero-link {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 20px 52px 20px 20px;
+  color: #fff;
+  background: var(--refund-blue);
+  text-decoration: none;
+}
+.complaint-hero-link:hover { background: #1e42ce; }
+.complaint-hero-link span { color: #c5cfff; font-size: .68rem; font-weight: 900; letter-spacing: .1em; }
+.complaint-hero-link strong { font-size: 1rem; }
+.complaint-hero-link b {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  font-size: 1.25rem;
+  transform: translateY(-50%);
+}
 .rejection-ladder {
   display: grid;
   gap: 1px;
@@ -588,6 +640,7 @@
   .script-meta .copy-button { justify-self: end; }
   .evidence-checklist { grid-template-columns: repeat(2, 1fr); }
   .evidence-checklist > div { grid-column: 1 / -1; }
+  .rejected-heading-row { grid-template-columns: minmax(0, 1fr) 270px; }
   .rejection-ladder { grid-template-columns: repeat(3, 1fr); }
   .escalation-head { grid-template-columns: minmax(0, 1fr) auto; }
   .escalation-head .copy-button { justify-self: end; }

@@ -39,7 +39,7 @@
         <div class="refund-hero-copy">
           <p class="refund-eyebrow">REFUND RESCUE KIT · 2026</p>
           <h1>账号停用后，<span>把余额要回来</span></h1>
-          <p>先保号码，再提退款。按账号状态选择话术，一键复制后替换方括号内容，直接提交给官方客服。</p>
+          <p>先保号码，再提退款。按账号状态选择话术，一键复制后直接提交给官方客服。</p>
           <div class="hero-actions">
             <a class="primary-cta" href="#route">现在开始</a>
             <a class="ghost-cta" href="#pac">我先要 PAC</a>
@@ -175,7 +175,7 @@
         <div class="section-heading">
           <span>03 · 发申请</span>
           <h2 id="scripts-title">选择退款话术</h2>
-          <p>方括号内容先替换。尽量同时附余额、付款记录、停用通知截图。</p>
+          <p>话术已按登录账号提交的场景写好，一键复制即可；建议同时附上余额与停用通知截图。</p>
         </div>
 
         <div class="script-tabs" role="tablist" aria-label="退款话术类型">
@@ -190,11 +190,9 @@
           </div>
           <div class="script-body" id="script-within">Hello giffgaff Agent,
 
-I am writing to cancel my registration and request a refund. My SIM was activated on [ACTIVATION DATE], so this request is being submitted within your published 14-day cancellation period.
+I am writing to cancel my registration and request a refund. My SIM was activated within the last 14 days, so this request is being submitted within your published 14-day cancellation period.
 
-Member name: [MEMBER NAME]
-Mobile number: [GIFFGAFF NUMBER]
-Current remaining balance: [£ AMOUNT]
+As I am submitting this request while signed in, please refer to the account record for the activation date, mobile number, purchases and current balance.
 
 Please refund my remaining credit in full. If I purchased a plan, please refund it in full if completely unused, or refund the unused portion proportionately if it has been partly used.
 
@@ -204,9 +202,13 @@ Please confirm:
 3. the date the refund is initiated and the expected arrival timeframe; and
 4. my case/reference number.
 
-[IF NEEDED: I also need to retain my number. Please issue my PAC and preserve the number while this request is processed.]
+If the number has not yet been transferred, please issue my PAC and preserve the number while this request is processed.
 
 Thank you.</div>
+          <div class="script-summary-zh">
+            <span>中文总结</span>
+            <p>这段话是在告诉客服：账号仍处于激活后 14 天取消期内，要求退还剩余余额；套餐完全没用就全退，部分使用就按未使用比例退。同时要求客服确认退款金额、原支付方式、处理日期、到账时间和工单编号，并保留号码所需的 PAC。</p>
+          </div>
           <p class="script-tip"><b>为什么更有利：</b>明确激活日期、余额、四项回复要求，并沿用官方退款口径，减少客服来回追问。</p>
         </article>
 
@@ -219,13 +221,9 @@ Thank you.</div>
 
 I am requesting a refund of the remaining Pay As You Go credit on my account following the disabling/deactivation of my service.
 
-Member name: [MEMBER NAME]
-Mobile number: [GIFFGAFF NUMBER]
-Date service was disabled/deactivated: [DATE]
-Balance shown before deactivation: [£ AMOUNT]
-Previous case/reference number, if any: [REFERENCE]
-
 This request is being made within 30 days of deactivation. Your published help guidance states that a member may contact an agent to request a refund of credit remaining at the time of deactivation. It also confirms that a PAC may be requested through an agent within 30 days of deactivation.
+
+As I am submitting this request while signed in, please refer to the account record and existing case history for the mobile number, deactivation date, balance and previous correspondence.
 
 Please:
 1. preserve and issue my PAC so I can transfer my number;
@@ -239,26 +237,35 @@ If card details must be re-added before you can process the refund, please tell 
 Please treat this as a billing request in the first instance. If it cannot be resolved by the agent team, please escalate it through the formal complaints process and retain the original submission date.
 
 Thank you.</div>
+          <div class="script-summary-zh">
+            <span>中文总结</span>
+            <p>这段话是在停用后 30 天内申请剩余 PAYG 余额退款。要求客服从登录账号里核对停用日期、余额和历史记录，同时提供 PAC、退还符合条件的充值余额、列出赠送余额与不可退金额，并说明退款卡、到账时间和工单编号。</p>
+          </div>
           <p class="script-tip"><b>为什么更有利：</b>直接引用当前官方停用退款说明；同时锁定 PAC、余额拆分、原支付方式、case reference 与升级路径。</p>
         </article>
 
-        <div class="evidence-checklist" aria-labelledby="evidence-title">
+        <div class="evidence-checklist evidence-checklist--two" aria-labelledby="evidence-title">
           <div>
             <span>发送前</span>
-            <h3 id="evidence-title">4 份证据一起附上</h3>
+            <h3 id="evidence-title">2 份关键截图一起附上</h3>
           </div>
           <label><input type="checkbox"> 余额 / Dashboard 截图</label>
-          <label><input type="checkbox"> 充值或套餐付款记录</label>
           <label><input type="checkbox"> 停用通知与日期</label>
-          <label><input type="checkbox"> 已有客服 reference</label>
         </div>
       </section>
 
       <section class="refund-section rejected-section reveal" id="rejected" aria-labelledby="rejected-title">
-        <div class="section-heading">
-          <span>04 · 客服拒绝后</span>
-          <h2 id="rejected-title">第一次被拒，不代表结束</h2>
-          <p>不要反复发送同一句。按“要求书面依据 → 正式投诉 → Deadlock / Ombudsman”逐级推进，并保留所有 reference 和日期。</p>
+        <div class="rejected-heading-row">
+          <div class="section-heading">
+            <span>04 · 客服拒绝后</span>
+            <h2 id="rejected-title">第一次被拒，不代表结束</h2>
+            <p>不要反复发送同一句。按“要求书面依据 → 正式投诉 → Deadlock / Ombudsman”逐级推进。</p>
+          </div>
+          <a class="complaint-hero-link" href="https://www.giffgaff.com/complaints" target="_blank" rel="noopener">
+            <span>官方入口</span>
+            <strong>打开正式投诉页面</strong>
+            <b>↗</b>
+          </a>
         </div>
 
         <div class="rejection-ladder" aria-label="退款被拒后的升级顺序">
@@ -285,9 +292,13 @@ Please provide:
 5. the calculation showing why each amount is refundable or excluded; and
 6. a manual review by a billing specialist or senior agent.
 
-Please preserve the original date of my refund request as [ORIGINAL REQUEST DATE] and reply under case reference [CASE REFERENCE].
+Please preserve the original submission date shown in the case history and reply within the same case.
 
 Thank you.</div>
+            <div class="script-summary-zh">
+              <span>中文总结</span>
+              <p>客服第一次拒绝时，用这段要求人工复核。重点是让客服写清楚拒绝退款的具体理由、引用哪条规则、停用前余额是多少、充值余额和赠送余额如何划分，以及每笔金额为什么可退或不可退。</p>
+            </div>
           </article>
 
           <article class="escalation-card escalation-card--blue">
@@ -301,13 +312,9 @@ Hello Member Relations,
 
 I am raising a formal complaint following the agent team's refusal to refund the eligible remaining Pay As You Go credit on my disabled/deactivated account.
 
-Member name: [MEMBER NAME]
-Mobile number: [GIFFGAFF NUMBER]
-Original refund request date: [DATE]
-Agent case reference: [CASE REFERENCE]
-Balance shown before deactivation: [£ AMOUNT]
+This complaint is being submitted while I am signed in. Please refer to my account details, balance, original refund request and complete agent correspondence already held in the account history.
 
-I requested the refund within [NUMBER] days of deactivation. I have asked the agent team to identify the applicable term, provide a full balance breakdown and explain the calculation, but the matter remains unresolved.
+I requested the refund within 30 days of deactivation. I have asked the agent team to identify the applicable term, provide a full balance breakdown and explain the calculation, but the matter remains unresolved.
 
 To resolve this complaint, please:
 1. conduct an independent review of the agent decision;
@@ -320,6 +327,10 @@ To resolve this complaint, please:
 Please retain the original refund-request date when assessing any time limit. I have attached the previous replies, balance evidence, payment records and deactivation notice.
 
 Thank you.</div>
+            <div class="script-summary-zh">
+              <span>中文总结</span>
+              <p>这是提交给 Member Relations 的正式投诉。内容说明普通客服已经拒绝退款，要求独立复核决定、退还符合条件的充值余额、给出完整计算和条款依据、保留 PAC，并提供正式投诉编号及书面处理结果。</p>
+            </div>
             <a class="complaint-link" href="https://www.giffgaff.com/complaints" target="_blank" rel="noopener">打开正式投诉入口 ↗</a>
           </article>
 
@@ -330,7 +341,7 @@ Thank you.</div>
             </div>
             <div class="script-body script-body--dark" id="deadlock-script">Thank you for the complaint outcome. I do not agree that this matter has been resolved.
 
-Please keep complaint [COMPLAINT REFERENCE] open and arrange a final review of the refund decision and balance calculation.
+Please keep this complaint open and arrange a final review of the refund decision and balance calculation.
 
 If this is giffgaff's final position and no further internal review will be offered, please issue a deadlock letter confirming:
 1. giffgaff's final decision;
@@ -344,6 +355,10 @@ If the complaint remains unresolved six weeks after it was raised, I intend to s
 Please respond in writing and retain all account, balance, payment and case records relevant to this complaint.
 
 Thank you.</div>
+            <div class="script-summary-zh script-summary-zh--dark">
+              <span>中文总结</span>
+              <p>正式投诉仍被拒后，用这段表示不接受结案，并要求最后一次复核。如果 giffgaff 坚持最终决定，就要求出具 Deadlock Letter，写明最终立场、拒绝理由、争议金额和投诉日期，以便向 Communications Ombudsman 继续申诉。</p>
+            </div>
           </article>
         </div>
 
@@ -364,7 +379,7 @@ Thank you.</div>
           </article>
           <article>
             <strong>“账号停用，所以余额作废”</strong>
-            <p id="reply-disabled">Please identify the exact term supporting forfeiture and confirm the recorded deactivation date. My request was submitted on [DATE], within [NUMBER] days of deactivation, so please reassess it using the account records from that date.</p>
+            <p id="reply-disabled">Please identify the exact term supporting forfeiture and confirm the recorded deactivation date. My request was submitted within 30 days of deactivation, so please reassess it using the account records already available to you.</p>
             <button class="mini-copy" type="button" data-copy-target="reply-disabled">复制</button>
           </article>
         </div>
@@ -373,7 +388,7 @@ Thank you.</div>
           <div class="wechat-help-copy">
             <span>看不懂客服回复？</span>
             <h3 id="wechat-help-title">把截图发给我，帮你选下一段话术</h3>
-            <p>请一起发：客服完整回复、case reference、停用日期、余额和付款记录。涉及卡号时只保留末四位。</p>
+            <p>请一起发：客服完整回复、停用日期和余额截图。涉及卡号时只保留末四位。</p>
             <div class="wechat-id-row">
               <span>微信 ID</span>
               <code id="wechat-id">oscar_2026year</code>
@@ -409,6 +424,10 @@ Please provide:
 If any amount has been excluded, please identify the relevant term or policy and explain the calculation.
 
 Thank you.</div>
+          <div class="script-summary-zh script-summary-zh--dark">
+            <span>中文总结</span>
+            <p>客服已经同意退款后，用这段继续确认：实际退款总额、充值余额与套餐退款的拆分、被排除的赠送余额、退款流水号、处理日期、银行卡类型和末四位，以及最晚到账日期。</p>
+          </div>
         </article>
         <div class="timing-row">
           <article><strong>24h</strong><p>agent 通常在 24 小时内回复</p></article>
