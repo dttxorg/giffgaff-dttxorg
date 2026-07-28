@@ -498,14 +498,12 @@
 }
 .evidence-checklist input { width: 18px; height: 18px; accent-color: var(--refund-yellow); }
 
-.rejected-section { background: #fffdf3; border-color: #eadc96; }
-.rejected-heading-row {
-  display: grid;
-  gap: 18px;
-  align-items: end;
-  margin-bottom: 30px;
+.rejected-section {
+  background: #fffdf3;
+  border-color: #eadc96;
+  scroll-margin-top: 86px;
 }
-.rejected-heading-row .section-heading { margin-bottom: 0; }
+.rejected-section-heading { margin-top: 30px; }
 .complaint-hero-link {
   position: relative;
   display: grid;
@@ -524,6 +522,17 @@
   top: 50%;
   font-size: 1.25rem;
   transform: translateY(-50%);
+}
+.complaint-hero-link--first {
+  min-height: 94px;
+  padding: 22px 70px 22px 24px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.08), transparent 55%),
+    var(--refund-blue);
+}
+.complaint-hero-link--first strong {
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  letter-spacing: -.025em;
 }
 .rejection-ladder {
   display: grid;
@@ -791,7 +800,6 @@
   .script-meta .copy-button { justify-self: end; }
   .evidence-checklist { grid-template-columns: repeat(2, 1fr); }
   .evidence-checklist > div { grid-column: 1 / -1; }
-  .rejected-heading-row { grid-template-columns: minmax(0, 1fr) 270px; }
   .rejection-ladder { grid-template-columns: repeat(3, 1fr); }
   .complaint-howto-head { grid-template-columns: minmax(0, 1fr) auto; }
   .complaint-howto-head > a { justify-self: end; }
