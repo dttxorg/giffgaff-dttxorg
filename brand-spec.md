@@ -7,6 +7,7 @@
 - Site identity: existing `assets/avatar.jpg` and the established header component in `styles.css`.
 - UI reference: `assets/refund/pac-settings-guide.jpg`, cropped from the user-provided Profile and settings screenshot to show only the PAC entry and exclude account details.
 - PAC/STAC comparison: `assets/refund/pac-vs-stac-example.png`, cropped from the second user-provided screenshot. It deliberately retains both the PAC request entry and the STAC result so the tutorial can point out the difference.
+- Complaint walkthrough: `assets/refund/complaint-step-1.png` and `assets/refund/complaint-step-2.png`, supplied and annotated by the user to show the category selection and agent form submission steps.
 - UI reference usage: PAC tutorial only; rendered at its native aspect ratio with a dark caption rail.
 
 ## Palette and type

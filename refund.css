@@ -550,6 +550,79 @@
 }
 .rejection-ladder strong { color: #111; }
 .rejection-ladder p { margin: 4px 0 0; color: #716629; font-size: .82rem; line-height: 1.5; }
+.complaint-howto {
+  margin-bottom: 20px;
+  padding: clamp(18px, 4vw, 28px);
+  border: 1px solid #cbd5ff;
+  background: #f1f4ff;
+}
+.complaint-howto-head {
+  display: grid;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.complaint-howto-head span {
+  color: var(--refund-blue);
+  font-size: .7rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+}
+.complaint-howto-head h3 {
+  margin: 4px 0 6px;
+  color: #111;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -.035em;
+}
+.complaint-howto-head p { margin: 0; color: #66707c; }
+.complaint-howto-head > a {
+  justify-self: start;
+  padding: 12px 16px;
+  color: #fff;
+  background: var(--refund-blue);
+  font-size: .82rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+.complaint-howto-head > a:hover { background: #1e42ce; }
+.complaint-step-grid { display: grid; gap: 14px; }
+.complaint-step-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d4d9e3;
+  background: #fff;
+}
+.complaint-step-label {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px;
+}
+.complaint-step-label > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  aspect-ratio: 1;
+  color: #111;
+  background: var(--refund-yellow);
+  font-weight: 950;
+}
+.complaint-step-label strong { color: #111; }
+.complaint-step-label p { margin: 4px 0 0; color: #616a77; font-size: .82rem; line-height: 1.55; }
+.complaint-step-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #e1e4e9;
+}
+.complaint-step-card figcaption {
+  padding: 12px 16px;
+  color: #525c6b;
+  background: #f7f8fa;
+  font-size: .8rem;
+  line-height: 1.55;
+}
 .escalation-scripts { display: grid; gap: 12px; }
 .escalation-card { border: 1px solid #dfe3e8; background: #fff; }
 .escalation-card--blue { border-color: #b5c1ff; }
@@ -720,6 +793,9 @@
   .evidence-checklist > div { grid-column: 1 / -1; }
   .rejected-heading-row { grid-template-columns: minmax(0, 1fr) 270px; }
   .rejection-ladder { grid-template-columns: repeat(3, 1fr); }
+  .complaint-howto-head { grid-template-columns: minmax(0, 1fr) auto; }
+  .complaint-howto-head > a { justify-self: end; }
+  .complaint-step-grid { grid-template-columns: repeat(2, 1fr); }
   .escalation-head { grid-template-columns: minmax(0, 1fr) auto; }
   .escalation-head .copy-button { justify-self: end; }
   .quick-replies { grid-template-columns: repeat(3, 1fr); }
