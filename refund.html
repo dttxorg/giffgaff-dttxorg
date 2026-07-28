@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="giffgaff 账号停用后退款操作指南：14 天内取消、14 天后余额退款、PAC 获取与退款到账追问英文话术。">
+    <title>账号停用后退款指南 · giffgaff</title>
+    <link rel="icon" href="./assets/avatar.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./refund.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R20PEX1LN4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R20PEX1LN4");
+    </script>
+  </head>
+  <body class="refund-page">
+    <div class="bg-aurora" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar reveal">
+        <a class="seller" href="./index.html" aria-label="返回首页">
+          <span class="avatar-ring"><img src="./assets/avatar.jpg" alt="" width="46" height="46"></span>
+          <span>返回首页</span>
+        </a>
+        <nav class="nav no-mobile" aria-label="本页导航">
+          <a href="#route">选退款路径</a>
+          <a href="#pac">获取 PAC</a>
+          <a href="#scripts">退款话术</a>
+          <a href="#follow-up">到账追问</a>
+        </nav>
+      </header>
+
+      <section class="refund-hero reveal">
+        <div class="refund-hero-copy">
+          <p class="refund-eyebrow">REFUND RESCUE KIT · 2026</p>
+          <h1>账号停用后，<span>把余额要回来</span></h1>
+          <p>先保号码，再提退款。按账号状态选择话术，一键复制后替换方括号内容，直接提交给官方客服。</p>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#route">现在开始</a>
+            <a class="ghost-cta" href="#pac">我先要 PAC</a>
+          </div>
+        </div>
+        <aside class="deadline-card" aria-label="关键期限">
+          <span class="deadline-label">关键期限</span>
+          <strong>14 / 30</strong>
+          <p><b>14 天</b>：从 SIM 激活起计算取消期<br><b>30 天</b>：停用后尽快申请 PAC 与剩余余额</p>
+        </aside>
+      </section>
+
+      <section class="priority-strip reveal" aria-label="最重要的操作顺序">
+        <span class="priority-icon">!</span>
+        <div>
+          <strong>号码重要？优先拿 PAC。</strong>
+          <p>保存 PAC、余额截图和停用日期；14 天期限将到时，不要等 PAC，退款请求与 PAC 请求同时提交。</p>
+        </div>
+      </section>
+
+      <section class="refund-section route-section reveal" id="route" aria-labelledby="route-title">
+        <div class="section-heading">
+          <span>01 · 选路径</span>
+          <h2 id="route-title">你现在属于哪一种？</h2>
+          <p>不要把“disabled（受限）”和“deactivated（号码已停用）”混在一起。</p>
+        </div>
+        <div class="route-grid">
+          <article class="route-card route-card--yellow">
+            <span class="route-number">A</span>
+            <p class="route-tag">激活不超过 14 天</p>
+            <h3>走取消期退款</h3>
+            <p>余额退回；未使用套餐全额退，已使用套餐按未使用部分比例退。退款发起后通常还需 3–5 个工作日到银行。</p>
+            <a href="#within-14">复制 14 天内话术 →</a>
+          </article>
+          <article class="route-card">
+            <span class="route-number">B</span>
+            <p class="route-tag">超过 14 天 / 已停用</p>
+            <h3>走剩余余额退款</h3>
+            <p>引用官方“停用后 30 天内申请剩余余额退款”的说明，要求书面确认余额、可退金额和处理时限。</p>
+            <a href="#after-14">复制 14 天外话术 →</a>
+          </article>
+          <article class="route-card">
+            <span class="route-number">C</span>
+            <p class="route-tag">只是 disabled</p>
+            <h3>先确认状态</h3>
+            <p>要求客服说明限制原因、确认号码与余额仍被保留，并同时提供 PAC 或转交能处理 PAC / 退款的专员。</p>
+            <a href="#disabled-note">查看补充句 →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="refund-section pac-section reveal" id="pac" aria-labelledby="pac-title">
+        <div class="section-heading">
+          <span>02 · 保号码</span>
+          <h2 id="pac-title">封号后获取 PAC</h2>
+          <p>PAC 用来把原号码转到另一家英国网络，有效期 30 天。</p>
+        </div>
+
+        <div class="pac-explainer" aria-labelledby="pac-what-title">
+          <div class="pac-definition">
+            <span class="pac-word">PAC</span>
+            <div>
+              <p class="pac-full-name">Porting Authorisation Code</p>
+              <h3 id="pac-what-title">它是“携号转网授权码”</h3>
+              <p>PAC 不是退款码，也不是新号码。它相当于一把临时钥匙：把这串代码交给<strong>新的英国运营商</strong>，新运营商就能把你的原 giffgaff 号码转过去。</p>
+            </div>
+          </div>
+          <ol class="pac-flow" aria-label="PAC 使用流程">
+            <li><span>1</span><p><b>向 giffgaff 申请</b><small>拿到标有“PAC code”的代码和到期日</small></p></li>
+            <li><span>2</span><p><b>交给新运营商</b><small>在新卡的“Keep my number / Transfer number”页面提交</small></p></li>
+            <li><span>3</span><p><b>等待号码转入</b><small>通常在一个工作日内完成，原号码随后在新卡上使用</small></p></li>
+          </ol>
+        </div>
+
+        <div class="code-compare">
+          <figure class="code-example">
+            <img src="./assets/refund/pac-vs-stac-example.png" alt="giffgaff 页面中的 Get a PAC code 入口，以及下方显示 STAC code 的错误示范" width="966" height="512">
+            <figcaption>认准页面结果里的文字：必须显示 <strong>PAC code</strong>，而不是 <strong>STAC code</strong>。</figcaption>
+          </figure>
+          <div class="pac-stac-guide">
+            <p class="compare-kicker">别选错</p>
+            <h3>PAC 和 STAC 完全不同</h3>
+            <div class="compare-row compare-row--keep">
+              <span>PAC</span>
+              <div><strong>保留原号码</strong><p>把原 giffgaff 号码转到新运营商。想继续使用旧号码就选这个。</p></div>
+            </div>
+            <div class="compare-row compare-row--lose">
+              <span>STAC</span>
+              <div><strong>放弃原号码</strong><p>只结束旧服务，不把旧号码带走；切换后原号码会被注销。</p></div>
+            </div>
+            <div class="screenshot-warning">
+              <strong>截图下半部分其实是 STAC</strong>
+              <p>因为它写着 <code>STAC code</code> 和 <code>Cancel STAC</code>。蓝色箭头虽然标了“PAC”，箭头指向的仍是 STAC。要保留号码，请返回上方点击 <b>Get a PAC code</b>，直到结果明确写着 <b>PAC code</b>。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pac-layout">
+          <div class="pac-steps">
+            <article>
+              <span>推荐</span>
+              <div>
+                <h3>官网登录申请</h3>
+                <p>登录后进入 <b>Profile and settings</b>，下滑到 <b>Get a giffgaff PAC code</b>，点击 <b>Get a PAC code</b>。</p>
+                <a href="https://www.giffgaff.com/profile/details" target="_blank" rel="noopener">打开 Profile and settings ↗</a>
+              </div>
+            </article>
+            <article>
+              <span>已停用</span>
+              <div>
+                <h3>直接找客服</h3>
+                <p>自助入口失效时，联系 agent 索取 PAC。官方说明：停用后仍可在 30 天内由客服协助申请。</p>
+                <a href="https://help.giffgaff.com/en/articles/635745-getting-a-pac-or-stac-to-leave-giffgaff" target="_blank" rel="noopener">查看官方 PAC 指南 ↗</a>
+              </div>
+            </article>
+          </div>
+          <figure class="pac-figure">
+            <img src="./assets/refund/pac-settings-guide.jpg" alt="Profile and settings 页面底部 Get a giffgaff PAC code 入口" width="1005" height="227">
+            <figcaption><span>页面位置</span> Profile and settings → Get a giffgaff PAC code</figcaption>
+          </figure>
+        </div>
+
+        <div class="pac-mini-script" id="disabled-note">
+          <div>
+            <span>自助失败时追加这句</span>
+            <p id="pac-copy">My service is currently disabled and the self-service PAC route is unavailable. Please issue my PAC, or escalate this request to the team that can do so, while preserving my number and remaining balance.</p>
+          </div>
+          <button class="copy-button copy-button--dark" type="button" data-copy-target="pac-copy">复制</button>
+        </div>
+      </section>
+
+      <section class="refund-section scripts-section reveal" id="scripts" aria-labelledby="scripts-title">
+        <div class="section-heading">
+          <span>03 · 发申请</span>
+          <h2 id="scripts-title">选择退款话术</h2>
+          <p>方括号内容先替换。尽量同时附余额、付款记录、停用通知截图。</p>
+        </div>
+
+        <div class="script-tabs" role="tablist" aria-label="退款话术类型">
+          <button class="script-tab is-active" id="tab-within" role="tab" aria-selected="true" aria-controls="within-14" data-tab="within-14">14 天内</button>
+          <button class="script-tab" id="tab-after" role="tab" aria-selected="false" aria-controls="after-14" data-tab="after-14">14 天外 / 已停用</button>
+        </div>
+
+        <article class="script-panel is-active" id="within-14" role="tabpanel" aria-labelledby="tab-within">
+          <div class="script-meta">
+            <div><span>SUBJECT</span><strong>Cancellation within 14 days — full refund request</strong></div>
+            <button class="copy-button" type="button" data-copy-target="script-within">复制整段话术</button>
+          </div>
+          <div class="script-body" id="script-within">Hello giffgaff Agent,
+
+I am writing to cancel my registration and request a refund. My SIM was activated on [ACTIVATION DATE], so this request is being submitted within your published 14-day cancellation period.
+
+Member name: [MEMBER NAME]
+Mobile number: [GIFFGAFF NUMBER]
+Current remaining balance: [£ AMOUNT]
+
+Please refund my remaining credit in full. If I purchased a plan, please refund it in full if completely unused, or refund the unused portion proportionately if it has been partly used.
+
+Please confirm:
+1. the amount being refunded, with a breakdown of credit and plan refund;
+2. that it will be returned to the original payment method;
+3. the date the refund is initiated and the expected arrival timeframe; and
+4. my case/reference number.
+
+[IF NEEDED: I also need to retain my number. Please issue my PAC and preserve the number while this request is processed.]
+
+Thank you.</div>
+          <p class="script-tip"><b>为什么更有利：</b>明确激活日期、余额、四项回复要求，并沿用官方退款口径，减少客服来回追问。</p>
+        </article>
+
+        <article class="script-panel" id="after-14" role="tabpanel" aria-labelledby="tab-after" hidden>
+          <div class="script-meta">
+            <div><span>SUBJECT</span><strong>Refund of remaining PAYG credit after service deactivation</strong></div>
+            <button class="copy-button" type="button" data-copy-target="script-after">复制整段话术</button>
+          </div>
+          <div class="script-body" id="script-after">Hello giffgaff Agent,
+
+I am requesting a refund of the remaining Pay As You Go credit on my account following the disabling/deactivation of my service.
+
+Member name: [MEMBER NAME]
+Mobile number: [GIFFGAFF NUMBER]
+Date service was disabled/deactivated: [DATE]
+Balance shown before deactivation: [£ AMOUNT]
+Previous case/reference number, if any: [REFERENCE]
+
+This request is being made within 30 days of deactivation. Your published help guidance states that a member may contact an agent to request a refund of credit remaining at the time of deactivation. It also confirms that a PAC may be requested through an agent within 30 days of deactivation.
+
+Please:
+1. preserve and issue my PAC so I can transfer my number;
+2. refund all eligible remaining PAYG credit to the original payment method;
+3. provide a full balance breakdown, clearly separating paid top-up credit from any bonus/promotional credit and explaining any excluded amount;
+4. confirm the card/payment method used for the refund by its type and last four digits; and
+5. provide a case/reference number and the expected processing timeframe.
+
+If card details must be re-added before you can process the refund, please tell me exactly where to add them and confirm when the account is ready for the refund.
+
+Please treat this as a billing request in the first instance. If it cannot be resolved by the agent team, please escalate it through the formal complaints process and retain the original submission date.
+
+Thank you.</div>
+          <p class="script-tip"><b>为什么更有利：</b>直接引用当前官方停用退款说明；同时锁定 PAC、余额拆分、原支付方式、case reference 与升级路径。</p>
+        </article>
+
+        <div class="evidence-checklist" aria-labelledby="evidence-title">
+          <div>
+            <span>发送前</span>
+            <h3 id="evidence-title">4 份证据一起附上</h3>
+          </div>
+          <label><input type="checkbox"> 余额 / Dashboard 截图</label>
+          <label><input type="checkbox"> 充值或套餐付款记录</label>
+          <label><input type="checkbox"> 停用通知与日期</label>
+          <label><input type="checkbox"> 已有客服 reference</label>
+        </div>
+      </section>
+
+      <section class="refund-section follow-section reveal" id="follow-up" aria-labelledby="follow-title">
+        <div class="section-heading">
+          <span>04 · 追到账</span>
+          <h2 id="follow-title">已确认退款？继续问清金额和卡</h2>
+        </div>
+        <article class="follow-card">
+          <div class="follow-top">
+            <span>FOLLOW-UP</span>
+            <button class="copy-button copy-button--dark" type="button" data-copy-target="follow-script">复制追问话术</button>
+          </div>
+          <div class="script-body script-body--dark" id="follow-script">Thank you for confirming the refund.
+
+Please provide:
+1. the total amount refunded;
+2. a full breakdown showing paid top-up credit, plan refund, and any bonus/promotional credit excluded;
+3. the refund transaction/reference number and processing date;
+4. the payment method used, including the card type and last four digits only; and
+5. the date by which the funds should appear.
+
+If any amount has been excluded, please identify the relevant term or policy and explain the calculation.
+
+Thank you.</div>
+        </article>
+        <div class="timing-row">
+          <article><strong>24h</strong><p>agent 通常在 24 小时内回复</p></article>
+          <article><strong>5 days</strong><p>正式投诉目标回复时间</p></article>
+          <article><strong>3–5 days</strong><p>退款发出后常见银行到账时间</p></article>
+        </div>
+      </section>
+
+      <section class="official-links reveal" aria-labelledby="official-title">
+        <div>
+          <span>规则依据</span>
+          <h2 id="official-title">官方入口</h2>
+        </div>
+        <a href="https://help.giffgaff.com/en/articles/273804-how-to-cancel-your-account-within-14-days-of-joining-giffgaff" target="_blank" rel="noopener">14 天内取消政策 <b>↗</b></a>
+        <a href="https://help.giffgaff.com/en/articles/242797-understanding-why-your-number-has-been-deactivated" target="_blank" rel="noopener">停用后 PAC / 余额退款 <b>↗</b></a>
+        <a href="https://help.giffgaff.com/en/articles/478099-what-to-do-if-you-need-a-refund-for-something" target="_blank" rel="noopener">退款帮助 <b>↗</b></a>
+        <a href="https://www.giffgaff.com/complaints" target="_blank" rel="noopener">正式投诉入口 <b>↗</b></a>
+      </section>
+
+      <footer class="site-footer reveal">
+        <p>信息按 2026 年 7 月可见官方帮助页整理。退款资格与金额由 giffgaff 按账户记录和最新条款核定。</p>
+      </footer>
+    </main>
+
+    <div class="copy-toast" role="status" aria-live="polite">已复制，可直接粘贴给客服</div>
+
+    <script>
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      const progressBar = document.querySelector(".scroll-progress");
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const max = h.scrollHeight - h.clientHeight;
+        progressBar.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + "%";
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+
+      const tabs = document.querySelectorAll(".script-tab");
+      const panels = document.querySelectorAll(".script-panel");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => {
+            item.classList.remove("is-active");
+            item.setAttribute("aria-selected", "false");
+          });
+          panels.forEach((panel) => {
+            panel.classList.remove("is-active");
+            panel.hidden = true;
+          });
+          tab.classList.add("is-active");
+          tab.setAttribute("aria-selected", "true");
+          const panel = document.getElementById(tab.dataset.tab);
+          panel.hidden = false;
+          requestAnimationFrame(() => panel.classList.add("is-active"));
+        });
+      });
+
+      const toast = document.querySelector(".copy-toast");
+      let toastTimer;
+      document.querySelectorAll("[data-copy-target]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const target = document.getElementById(button.dataset.copyTarget);
+          const text = target.innerText.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch (error) {
+            const area = document.createElement("textarea");
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand("copy");
+            area.remove();
+          }
+          const oldText = button.textContent;
+          button.textContent = "已复制 ✓";
+          toast.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+          setTimeout(() => button.textContent = oldText, 1600);
+        });
+      });
+    </script>
+  </body>
+</html>

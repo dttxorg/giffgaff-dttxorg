@@ -1105,6 +1105,95 @@ h1 .accent {
 .guide-links a strong { color: var(--primary-2); font-size: 0.9rem; }
 
 /* =========================================================================
+   教程入口（首页 6 卡）
+   ========================================================================= */
+.page-hub {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.page-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+@media (min-width: 640px) {
+  .page-hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px) {
+  .page-hub-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.page-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-2);
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.page-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--grad-2);
+  transition: width 0.4s var(--ease);
+}
+.page-card:hover {
+  background: var(--paper-3);
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+}
+.page-card:hover::after { width: 100%; }
+.page-card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--grad-1);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+.page-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 850;
+  color: var(--ink);
+}
+.page-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.page-card .arrow {
+  align-self: flex-end;
+  color: var(--primary-2);
+  font-size: 1.1rem;
+  margin-top: auto;
+  transition: transform 0.3s var(--ease);
+}
+.page-card:hover .arrow { transform: translateX(4px); }
+
+/* =========================================================================
    教程步骤
    ========================================================================= */
 .tutorial-steps {
