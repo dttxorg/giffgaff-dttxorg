@@ -783,7 +783,7 @@
   .refund-hero { grid-template-columns: minmax(0, 1fr) 250px; }
   .top-wechat-support { grid-template-columns: 180px minmax(0, 1fr); }
   .support-promises { grid-template-columns: repeat(3, 1fr); }
-  .route-grid { grid-template-columns: repeat(3, 1fr); }
+  .route-grid { grid-template-columns: repeat(2, 1fr); }
   .pac-definition { grid-template-columns: 180px 1fr; }
   .pac-flow { grid-template-columns: repeat(3, 1fr); }
   .pac-mini-script { grid-template-columns: minmax(0, 1fr) auto; }
@@ -824,7 +824,7 @@
   .priority-strip { grid-template-columns: 40px 1fr; padding: 15px; }
   .priority-icon { width: 40px; }
   .pac-steps article { grid-template-columns: 1fr; gap: 8px; }
-  .script-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .script-tabs { display: grid; grid-template-columns: repeat(2, 1fr); }
   .script-tab { padding-inline: 8px; font-size: .82rem; }
   .script-body { font-size: .78rem; overflow-wrap: anywhere; }
   .pac-figure figcaption { display: block; }
