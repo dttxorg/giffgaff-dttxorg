@@ -79,6 +79,81 @@
 .deadline-card p { margin: 0; color: #d7dae0; font-size: .86rem; line-height: 1.6; }
 .deadline-card b { color: #fff; }
 
+.top-wechat-support {
+  display: grid;
+  gap: 22px;
+  align-items: center;
+  margin: 18px 0;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid #b8c4ff;
+  background: #eef1ff;
+  scroll-margin-top: 86px;
+}
+.top-wechat-qr {
+  align-self: start;
+  width: min(100%, 180px);
+  padding: 9px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(30, 54, 160, .1);
+}
+.top-wechat-qr img { display: block; width: 100%; height: auto; }
+.top-wechat-qr span {
+  display: block;
+  padding: 7px 4px 2px;
+  color: #111;
+  font-size: .72rem;
+  font-weight: 900;
+  text-align: center;
+}
+.support-kicker {
+  margin: 0 0 6px;
+  color: var(--refund-blue);
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+}
+.top-wechat-copy > h2 {
+  margin: 0 0 10px;
+  color: #111;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+.top-wechat-copy > p:not(.support-kicker) { margin: 0; color: #515c72; line-height: 1.7; }
+.top-wechat-copy > p strong { color: #111; }
+.support-promises {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+.support-promises article {
+  padding: 14px;
+  border: 1px solid #cdd5ff;
+  background: rgba(255,255,255,.72);
+}
+.support-promises span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--refund-blue);
+  font-size: .72rem;
+  font-weight: 950;
+}
+.support-promises p { margin: 0; color: #586277; font-size: .82rem; line-height: 1.58; }
+.top-wechat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+}
+.top-wechat-actions code {
+  padding: 11px 13px;
+  color: #fff;
+  background: #111;
+  border-radius: 0;
+  font-weight: 950;
+}
+
 .priority-strip {
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -632,6 +707,8 @@
 
 @media (min-width: 720px) {
   .refund-hero { grid-template-columns: minmax(0, 1fr) 250px; }
+  .top-wechat-support { grid-template-columns: 180px minmax(0, 1fr); }
+  .support-promises { grid-template-columns: repeat(3, 1fr); }
   .route-grid { grid-template-columns: repeat(3, 1fr); }
   .pac-definition { grid-template-columns: 180px 1fr; }
   .pac-flow { grid-template-columns: repeat(3, 1fr); }
@@ -664,6 +741,7 @@
   .refund-hero { margin-inline: -12px; border-radius: 0 0 26px 26px; }
   .refund-hero h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
   .refund-hero .hero-actions { width: 100%; }
+  .top-wechat-qr { width: 138px; }
   .refund-section,
   .official-links { padding: 24px 18px; }
   .priority-strip { grid-template-columns: 40px 1fr; padding: 15px; }
