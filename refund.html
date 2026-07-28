@@ -30,6 +30,7 @@
           <a href="#route">选退款路径</a>
           <a href="#pac">获取 PAC</a>
           <a href="#scripts">退款话术</a>
+          <a href="#rejected">拒绝后追款</a>
           <a href="#follow-up">到账追问</a>
         </nav>
       </header>
@@ -253,9 +254,142 @@ Thank you.</div>
         </div>
       </section>
 
+      <section class="refund-section rejected-section reveal" id="rejected" aria-labelledby="rejected-title">
+        <div class="section-heading">
+          <span>04 · 客服拒绝后</span>
+          <h2 id="rejected-title">第一次被拒，不代表结束</h2>
+          <p>不要反复发送同一句。按“要求书面依据 → 正式投诉 → Deadlock / Ombudsman”逐级推进，并保留所有 reference 和日期。</p>
+        </div>
+
+        <div class="rejection-ladder" aria-label="退款被拒后的升级顺序">
+          <article><span>1</span><div><strong>要求复核</strong><p>让客服写明拒绝理由、适用条款和余额计算。</p></div></article>
+          <article><span>2</span><div><strong>正式投诉</strong><p>已有 agent case 后提交 complaint，索取投诉编号。</p></div></article>
+          <article><span>3</span><div><strong>要求最终立场</strong><p>仍不解决时索取 deadlock letter，保留向 Communications Ombudsman 提交的权利。</p></div></article>
+        </div>
+
+        <div class="escalation-scripts">
+          <article class="escalation-card">
+            <div class="escalation-head">
+              <div><span>ROUND 1</span><h3>客服第一次拒绝：要求书面复核</h3></div>
+              <button class="copy-button" type="button" data-copy-target="reconsider-script">复制话术</button>
+            </div>
+            <div class="script-body" id="reconsider-script">Thank you for your reply. I do not accept the refusal as currently explained, and I am asking for a manual review of the decision.
+
+Your published help guidance states that members may contact an agent to request a refund of credit remaining at the time of deactivation. Your refund guidance also states that unused credit may be returned when a member moves their number to another network.
+
+Please provide:
+1. the exact reason my refund has been refused;
+2. the specific term or policy relied upon, including a link or quoted section;
+3. my balance immediately before disabling/deactivation;
+4. a transaction-level breakdown separating paid top-up credit from bonus/promotional credit;
+5. the calculation showing why each amount is refundable or excluded; and
+6. a manual review by a billing specialist or senior agent.
+
+Please preserve the original date of my refund request as [ORIGINAL REQUEST DATE] and reply under case reference [CASE REFERENCE].
+
+Thank you.</div>
+          </article>
+
+          <article class="escalation-card escalation-card--blue">
+            <div class="escalation-head">
+              <div><span>ROUND 2</span><h3>复核仍被拒：提交正式投诉</h3></div>
+              <button class="copy-button copy-button--dark" type="button" data-copy-target="complaint-script">复制投诉话术</button>
+            </div>
+            <div class="script-body" id="complaint-script">Subject: Formal complaint — refusal to refund remaining PAYG credit
+
+Hello Member Relations,
+
+I am raising a formal complaint following the agent team's refusal to refund the eligible remaining Pay As You Go credit on my disabled/deactivated account.
+
+Member name: [MEMBER NAME]
+Mobile number: [GIFFGAFF NUMBER]
+Original refund request date: [DATE]
+Agent case reference: [CASE REFERENCE]
+Balance shown before deactivation: [£ AMOUNT]
+
+I requested the refund within [NUMBER] days of deactivation. I have asked the agent team to identify the applicable term, provide a full balance breakdown and explain the calculation, but the matter remains unresolved.
+
+To resolve this complaint, please:
+1. conduct an independent review of the agent decision;
+2. refund all eligible paid top-up credit to the original payment method;
+3. provide the complete balance and transaction breakdown;
+4. explain every excluded amount by reference to the applicable term;
+5. confirm my PAC/number remains preserved where applicable; and
+6. provide a complaint reference number and written outcome.
+
+Please retain the original refund-request date when assessing any time limit. I have attached the previous replies, balance evidence, payment records and deactivation notice.
+
+Thank you.</div>
+            <a class="complaint-link" href="https://www.giffgaff.com/complaints" target="_blank" rel="noopener">打开正式投诉入口 ↗</a>
+          </article>
+
+          <article class="escalation-card escalation-card--dark">
+            <div class="escalation-head">
+              <div><span>ROUND 3</span><h3>正式投诉仍被拒：索取 Deadlock Letter</h3></div>
+              <button class="copy-button" type="button" data-copy-target="deadlock-script">复制话术</button>
+            </div>
+            <div class="script-body script-body--dark" id="deadlock-script">Thank you for the complaint outcome. I do not agree that this matter has been resolved.
+
+Please keep complaint [COMPLAINT REFERENCE] open and arrange a final review of the refund decision and balance calculation.
+
+If this is giffgaff's final position and no further internal review will be offered, please issue a deadlock letter confirming:
+1. giffgaff's final decision;
+2. the reasons and terms relied upon;
+3. the amount in dispute;
+4. the date the complaint was first raised; and
+5. my right to refer the matter to the Communications Ombudsman.
+
+If the complaint remains unresolved six weeks after it was raised, I intend to submit the complete case record to the Communications Ombudsman.
+
+Please respond in writing and retain all account, balance, payment and case records relevant to this complaint.
+
+Thank you.</div>
+          </article>
+        </div>
+
+        <div class="quick-replies" aria-labelledby="quick-title">
+          <div class="quick-title">
+            <span>客服常见理由</span>
+            <h3 id="quick-title">三句针对性补充</h3>
+          </div>
+          <article>
+            <strong>“已经超过 14 天”</strong>
+            <p id="reply-14">I am not relying solely on the 14-day cancellation period. I am requesting the eligible PAYG credit remaining at deactivation under your published deactivation and refund guidance. Please assess that request separately.</p>
+            <button class="mini-copy" type="button" data-copy-target="reply-14">复制</button>
+          </article>
+          <article>
+            <strong>“余额都是赠送的”</strong>
+            <p id="reply-bonus">Please provide the transaction ledger showing which amounts were paid top-up credit and which were promotional. Please do not classify the entire balance as promotional without a transaction-level breakdown.</p>
+            <button class="mini-copy" type="button" data-copy-target="reply-bonus">复制</button>
+          </article>
+          <article>
+            <strong>“账号停用，所以余额作废”</strong>
+            <p id="reply-disabled">Please identify the exact term supporting forfeiture and confirm the recorded deactivation date. My request was submitted on [DATE], within [NUMBER] days of deactivation, so please reassess it using the account records from that date.</p>
+            <button class="mini-copy" type="button" data-copy-target="reply-disabled">复制</button>
+          </article>
+        </div>
+
+        <aside class="wechat-help" aria-labelledby="wechat-help-title">
+          <div class="wechat-help-copy">
+            <span>看不懂客服回复？</span>
+            <h3 id="wechat-help-title">把截图发给我，帮你选下一段话术</h3>
+            <p>请一起发：客服完整回复、case reference、停用日期、余额和付款记录。涉及卡号时只保留末四位。</p>
+            <div class="wechat-id-row">
+              <span>微信 ID</span>
+              <code id="wechat-id">oscar_2026year</code>
+              <button class="mini-copy mini-copy--light" type="button" data-copy-target="wechat-id">复制微信号</button>
+            </div>
+          </div>
+          <div class="wechat-help-qr">
+            <img src="./assets/wechat-qr.jpg" alt="微信客服猫不肥二维码" width="220" height="220" loading="lazy">
+            <p>微信 · 猫不肥</p>
+          </div>
+        </aside>
+      </section>
+
       <section class="refund-section follow-section reveal" id="follow-up" aria-labelledby="follow-title">
         <div class="section-heading">
-          <span>04 · 追到账</span>
+          <span>05 · 追到账</span>
           <h2 id="follow-title">已确认退款？继续问清金额和卡</h2>
         </div>
         <article class="follow-card">

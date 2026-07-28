@@ -396,6 +396,129 @@
 }
 .evidence-checklist input { width: 18px; height: 18px; accent-color: var(--refund-yellow); }
 
+.rejected-section { background: #fffdf3; border-color: #eadc96; }
+.rejection-ladder {
+  display: grid;
+  gap: 1px;
+  margin-bottom: 20px;
+  padding: 1px;
+  background: #d8c86f;
+}
+.rejection-ladder article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  padding: 18px;
+  background: #fffbea;
+}
+.rejection-ladder article > span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  aspect-ratio: 1;
+  color: #111;
+  background: var(--refund-yellow);
+  font-weight: 950;
+}
+.rejection-ladder strong { color: #111; }
+.rejection-ladder p { margin: 4px 0 0; color: #716629; font-size: .82rem; line-height: 1.5; }
+.escalation-scripts { display: grid; gap: 12px; }
+.escalation-card { border: 1px solid #dfe3e8; background: #fff; }
+.escalation-card--blue { border-color: #b5c1ff; }
+.escalation-card--dark { border-color: #111; background: #111; }
+.escalation-head {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid #dfe3e8;
+  background: #f5f6f7;
+}
+.escalation-card--blue .escalation-head { background: #e9edff; border-bottom-color: #c7d0ff; }
+.escalation-card--dark .escalation-head { background: #1e2126; border-bottom-color: #353940; }
+.escalation-head span { color: var(--refund-blue); font-size: .68rem; font-weight: 950; letter-spacing: .1em; }
+.escalation-card--dark .escalation-head span { color: var(--refund-yellow); }
+.escalation-head h3 { margin: 3px 0 0; color: #111; font-size: 1.08rem; }
+.escalation-card--dark .escalation-head h3 { color: #fff; }
+.complaint-link {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  color: #fff;
+  background: var(--refund-blue);
+  font-size: .86rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+.complaint-link:hover { background: #1e42ce; }
+.quick-replies {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+.quick-title { margin-bottom: 4px; }
+.quick-title span { color: #9b8511; font-size: .7rem; font-weight: 950; }
+.quick-title h3 { margin: 3px 0 0; color: #111; }
+.quick-replies article {
+  position: relative;
+  padding: 18px;
+  border: 1px solid #e4dcae;
+  background: #fff;
+}
+.quick-replies article > strong { color: #111; }
+.quick-replies article > p {
+  margin: 9px 0 14px;
+  color: #5f6670;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .78rem;
+  line-height: 1.6;
+}
+.mini-copy {
+  padding: 8px 12px;
+  border: 1px solid #cbd1d8;
+  color: #111;
+  background: #fff;
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.mini-copy:hover { border-color: #111; }
+.wechat-help {
+  display: grid;
+  gap: 22px;
+  align-items: center;
+  margin-top: 20px;
+  padding: clamp(22px, 5vw, 38px);
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    #101114;
+}
+.wechat-help-copy > span { color: var(--refund-yellow); font-size: .72rem; font-weight: 950; letter-spacing: .08em; }
+.wechat-help-copy h3 { margin: 6px 0 10px; color: #fff; font-size: clamp(1.5rem, 4vw, 2.4rem); line-height: 1.08; letter-spacing: -.04em; }
+.wechat-help-copy > p { max-width: 620px; margin: 0; color: #b6bcc5; line-height: 1.65; }
+.wechat-id-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+.wechat-id-row > span { color: #8f96a1; font-size: .72rem; font-weight: 900; }
+.wechat-id-row code { padding: 9px 11px; color: #111; background: var(--refund-yellow); border-radius: 0; font-weight: 950; }
+.mini-copy--light { color: #fff; border-color: #525862; background: transparent; }
+.mini-copy--light:hover { border-color: #fff; }
+.wechat-help-qr {
+  justify-self: start;
+  width: min(100%, 220px);
+  padding: 10px;
+  background: #fff;
+}
+.wechat-help-qr img { display: block; width: 100%; height: auto; }
+.wechat-help-qr p { margin: 8px 0 0; color: #111; font-size: .78rem; font-weight: 900; text-align: center; }
+
 .follow-section { color: #fff; background: var(--refund-ink); border-color: var(--refund-ink); }
 .follow-section .section-heading > span { color: var(--refund-yellow); }
 .follow-section .section-heading h2 { color: #fff; }
@@ -465,6 +588,13 @@
   .script-meta .copy-button { justify-self: end; }
   .evidence-checklist { grid-template-columns: repeat(2, 1fr); }
   .evidence-checklist > div { grid-column: 1 / -1; }
+  .rejection-ladder { grid-template-columns: repeat(3, 1fr); }
+  .escalation-head { grid-template-columns: minmax(0, 1fr) auto; }
+  .escalation-head .copy-button { justify-self: end; }
+  .quick-replies { grid-template-columns: repeat(3, 1fr); }
+  .quick-title { grid-column: 1 / -1; }
+  .wechat-help { grid-template-columns: minmax(0, 1fr) 220px; }
+  .wechat-help-qr { justify-self: end; }
   .timing-row { grid-template-columns: repeat(3, 1fr); }
 }
 

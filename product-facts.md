@@ -8,6 +8,7 @@
 - PAC means Porting Authorisation Code. It is given to the new provider to switch service while keeping the existing number. STAC ends/switches the old service without retaining the old number. Ofcom says a switch using PAC should normally complete within one working day.
 - If card details were removed following deactivation, giffgaff may require them to be added again before an agent can process the refund.
 - First contact should be an agent; unresolved cases can be escalated to a formal complaint. Published targets are up to 24 hours for an agent response and 5 business days for complaint response.
+- After a complaint outcome, the member has 28 days to respond before giffgaff treats it as resolved. If the parties reach deadlock, giffgaff may issue a deadlock letter or the member may request one. The Communications Ombudsman can review an unresolved complaint after six weeks, or earlier where a deadlock letter has been issued.
 - Ofcom confirms the general Text to Switch/PAC process and that PAYG balance information must be provided with switching information. The page does not state a universal requirement that every PAYG balance must be refunded after a PAC transfer; page copy therefore relies on giffgaff’s own current refund/deactivation guidance.
 
 ## Sources
