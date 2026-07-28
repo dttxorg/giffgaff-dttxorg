@@ -392,6 +392,7 @@
 .pac-mini-script span { color: #cbd5ff; font-size: .72rem; font-weight: 900; }
 .pac-mini-script p { margin: 7px 0 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84rem; line-height: 1.65; white-space: pre-wrap; }
 
+.scripts-section { scroll-margin-top: 86px; }
 .script-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
 .script-tab {
   padding: 13px 18px;
@@ -747,7 +748,7 @@
   .priority-strip { grid-template-columns: 40px 1fr; padding: 15px; }
   .priority-icon { width: 40px; }
   .pac-steps article { grid-template-columns: 1fr; gap: 8px; }
-  .script-tabs { display: grid; grid-template-columns: 1fr 1fr; }
+  .script-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
   .script-tab { padding-inline: 8px; font-size: .82rem; }
   .script-body { font-size: .78rem; overflow-wrap: anywhere; }
   .pac-figure figcaption { display: block; }

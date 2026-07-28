@@ -103,21 +103,21 @@
             <p class="route-tag">激活不超过 14 天</p>
             <h3>走取消期退款</h3>
             <p>余额退回；未使用套餐全额退，已使用套餐按未使用部分比例退。退款发起后通常还需 3–5 个工作日到银行。</p>
-            <a href="#within-14">复制 14 天内话术 →</a>
+            <a href="#scripts" data-open-script="within-14">前往 14 天内话术 →</a>
           </article>
           <article class="route-card">
             <span class="route-number">B</span>
             <p class="route-tag">超过 14 天 / 已停用</p>
             <h3>走剩余余额退款</h3>
             <p>引用官方“停用后 30 天内申请剩余余额退款”的说明，要求书面确认余额、可退金额和处理时限。</p>
-            <a href="#after-14">复制 14 天外话术 →</a>
+            <a href="#scripts" data-open-script="after-14">前往 14 天外话术 →</a>
           </article>
           <article class="route-card">
             <span class="route-number">C</span>
             <p class="route-tag">只是 disabled</p>
             <h3>先确认状态</h3>
             <p>要求客服说明限制原因、确认号码与余额仍被保留，并同时提供 PAC 或转交能处理 PAC / 退款的专员。</p>
-            <a href="#disabled-note">查看补充句 →</a>
+            <a href="#scripts" data-open-script="disabled-script-panel">前往状态确认话术 →</a>
           </article>
         </div>
       </section>
@@ -212,6 +212,7 @@
         <div class="script-tabs" role="tablist" aria-label="退款话术类型">
           <button class="script-tab is-active" id="tab-within" role="tab" aria-selected="true" aria-controls="within-14" data-tab="within-14">14 天内</button>
           <button class="script-tab" id="tab-after" role="tab" aria-selected="false" aria-controls="after-14" data-tab="after-14">14 天外 / 已停用</button>
+          <button class="script-tab" id="tab-disabled" role="tab" aria-selected="false" aria-controls="disabled-script-panel" data-tab="disabled-script-panel">仅 Disabled</button>
         </div>
 
         <article class="script-panel is-active" id="within-14" role="tabpanel" aria-labelledby="tab-within">
@@ -273,6 +274,35 @@ Thank you.</div>
             <p>这段话是在停用后 30 天内申请剩余 PAYG 余额退款。要求客服从登录账号里核对停用日期、余额和历史记录，同时提供 PAC、退还符合条件的充值余额、列出赠送余额与不可退金额，并说明退款卡、到账时间和工单编号。</p>
           </div>
           <p class="script-tip"><b>为什么更有利：</b>直接引用当前官方停用退款说明；同时锁定 PAC、余额拆分、原支付方式、case reference 与升级路径。</p>
+        </article>
+
+        <article class="script-panel" id="disabled-script-panel" role="tabpanel" aria-labelledby="tab-disabled" hidden>
+          <div class="script-meta">
+            <div><span>SUBJECT</span><strong>Account disabled — status, PAC and balance review</strong></div>
+            <button class="copy-button" type="button" data-copy-target="script-disabled">复制整段话术</button>
+          </div>
+          <div class="script-body" id="script-disabled">Hello giffgaff Agent,
+
+My service is currently shown as disabled. Please conduct an account review and confirm the exact status of my number and balance.
+
+As I am submitting this request while signed in, please refer directly to the account record and existing case history.
+
+Please confirm:
+1. whether this is a temporary service restriction or a completed deactivation;
+2. the reason for the restriction and the specific term or policy relied upon;
+3. that my mobile number and remaining balance are being preserved during the review;
+4. whether the service can be restored and the expected review timeframe;
+5. how I can obtain my PAC if the self-service route is unavailable; and
+6. how all eligible remaining credit will be refunded if the service will not be restored.
+
+Please escalate this to the appropriate account-review or billing team where necessary and provide a written case reference.
+
+Thank you.</div>
+          <div class="script-summary-zh">
+            <span>中文总结</span>
+            <p>这段适用于账号只显示 Disabled、尚未确认号码已经停用的情况。要求客服说明是临时限制还是正式停用、给出限制原因、保留号码与余额、确认是否恢复服务，并在自助入口失效时提供 PAC；如果不恢复服务，则继续处理符合条件的余额退款。</p>
+          </div>
+          <p class="script-tip"><b>为什么先确认状态：</b>Disabled 不一定等于号码已 Deactivated。先让客服书面确认，后续申请 PAC、退款或正式投诉时会更清楚。</p>
         </article>
 
         <div class="evidence-checklist evidence-checklist--two" aria-labelledby="evidence-title">
@@ -507,8 +537,7 @@ Thank you.</div>
 
       const tabs = document.querySelectorAll(".script-tab");
       const panels = document.querySelectorAll(".script-panel");
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
+      const activateScriptPanel = (panelId) => {
           tabs.forEach((item) => {
             item.classList.remove("is-active");
             item.setAttribute("aria-selected", "false");
@@ -517,11 +546,24 @@ Thank you.</div>
             panel.classList.remove("is-active");
             panel.hidden = true;
           });
+          const tab = document.querySelector(`.script-tab[data-tab="${panelId}"]`);
+          const panel = document.getElementById(panelId);
+          if (!tab || !panel) return;
           tab.classList.add("is-active");
           tab.setAttribute("aria-selected", "true");
-          const panel = document.getElementById(tab.dataset.tab);
           panel.hidden = false;
           requestAnimationFrame(() => panel.classList.add("is-active"));
+      };
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          activateScriptPanel(tab.dataset.tab);
+        });
+      });
+      document.querySelectorAll("[data-open-script]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          activateScriptPanel(link.dataset.openScript);
+          document.getElementById("scripts").scrollIntoView({ behavior: "smooth", block: "start" });
         });
       });
 
