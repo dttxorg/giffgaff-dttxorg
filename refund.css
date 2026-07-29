@@ -16,6 +16,77 @@
 .refund-page .ghost-cta { border-color: rgba(255,255,255,.35); color: #fff; }
 .refund-page .ghost-cta:hover { background: rgba(255,255,255,.1); }
 
+.replacement-entry {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 18px;
+  padding: clamp(22px, 4vw, 34px);
+  display: grid;
+  gap: 22px;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid var(--refund-blue);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(255, 212, 0, .42), transparent 14rem),
+    #edf2ff;
+}
+.replacement-entry::after {
+  position: absolute;
+  right: -40px;
+  bottom: -62px;
+  width: 180px;
+  height: 180px;
+  border: 28px solid rgba(40, 80, 232, .09);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+.replacement-entry-copy { position: relative; z-index: 1; }
+.replacement-entry-copy > span {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--refund-yellow);
+  color: var(--refund-ink);
+  font-size: .72rem;
+  font-weight: 950;
+}
+.replacement-entry h2 {
+  max-width: 780px;
+  margin: 13px 0 9px;
+  color: var(--refund-ink);
+  font-size: clamp(1.7rem, 4vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+  text-align: left;
+}
+.replacement-entry p {
+  max-width: 760px;
+  margin: 0;
+  color: #505a69;
+  line-height: 1.65;
+}
+.replacement-entry > a {
+  position: relative;
+  z-index: 1;
+  min-height: 52px;
+  padding: 13px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--refund-ink);
+  border-radius: 999px;
+  background: var(--refund-blue);
+  box-shadow: 0 5px 0 var(--refund-ink);
+  color: #fff;
+  font-weight: 950;
+  text-decoration: none;
+}
+.replacement-entry > a:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--refund-ink);
+}
+
 .refund-hero {
   display: grid;
   gap: 28px;
@@ -789,6 +860,7 @@
 .copy-toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 @media (min-width: 720px) {
+  .replacement-entry { grid-template-columns: minmax(0, 1fr) auto; }
   .refund-hero { grid-template-columns: minmax(0, 1fr) 250px; }
   .top-wechat-support { grid-template-columns: 180px minmax(0, 1fr); }
   .support-promises { grid-template-columns: repeat(3, 1fr); }
