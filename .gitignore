@@ -20,6 +20,8 @@ Thumbs.db
 
 # 临时
 /tmp/
+.data/
+.env
 *.zip
 *.tar.gz
 *.rar

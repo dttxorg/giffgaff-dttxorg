@@ -1,0 +1,23 @@
+[Unit]
+Description=giffgaff refund complaint AI agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=giffgaff
+Group=giffgaff
+WorkingDirectory=/data/services/giffgaff-refund-agent/current
+EnvironmentFile=/data/services/giffgaff-refund-agent/shared/refund-agent.env
+ExecStart=/usr/local/bin/node /data/services/giffgaff-refund-agent/current/server.mjs
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/data/services/giffgaff-refund-agent/shared/data
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target

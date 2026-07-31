@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>AI退款助手 · 管理后台</title>
+    <link rel="icon" href="./assets/avatar.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./refund-agent-admin.css?v=20260731-5">
+  </head>
+  <body>
+    <section class="admin-login" id="login-view">
+      <form id="login-form">
+        <span>PRIVATE CONTROL</span>
+        <h1>AI退款助手<br>管理后台</h1>
+        <label>后台密码<input id="admin-password" type="password" autocomplete="current-password" required></label>
+        <button type="submit">进入后台 →</button>
+        <p id="login-error"></p>
+        <a href="./refund-agent.html">返回客户页面</a>
+      </form>
+    </section>
+
+    <main class="admin-app" id="admin-view" hidden>
+      <aside class="admin-sidebar">
+        <div class="admin-logo"><img src="./assets/avatar.jpg" alt="" width="44" height="44"><strong>Refund<br>Agent</strong></div>
+        <nav>
+          <button class="active" data-panel="overview">队列总览</button>
+          <button data-panel="config">AI接口设置</button>
+        </nav>
+        <button class="logout" id="logout">退出后台</button>
+      </aside>
+      <div class="admin-content">
+        <header>
+          <div><span>ADMIN CONSOLE</span><h1 id="panel-title">队列总览</h1></div>
+          <a href="./refund-agent.html" target="_blank">打开客户页面 ↗</a>
+        </header>
+
+        <section class="admin-panel active" id="panel-overview">
+          <div class="metric-grid">
+            <article><span>正在生成</span><strong id="metric-processing">0</strong><small>固定并发：1</small></article>
+            <article><span>排队等待</span><strong id="metric-queued">0</strong><small>严格FIFO顺序</small></article>
+            <article><span>已完成</span><strong id="metric-completed">0</strong><small>回执保留72小时</small></article>
+            <article><span>失败任务</span><strong id="metric-failed">0</strong><small>可手动重试</small></article>
+            <article><span>经验记忆</span><strong id="metric-experience">0</strong><small>匿名策略摘要</small></article>
+            <article><span>案例文案库</span><strong id="metric-library">0</strong><small id="metric-library-note">相似度≥90%快速复核</small></article>
+          </div>
+          <div class="queue-control">
+            <div><span>生成通道</span><strong id="channel-state">读取中…</strong><p>暂停后保留当前队列，不再启动下一项任务。</p></div>
+            <button id="toggle-pause" type="button">暂停队列</button>
+          </div>
+          <section class="job-section">
+            <div class="section-title"><div><span>RECENT JOBS</span><h2>最近任务</h2></div><button id="refresh-jobs">刷新</button></div>
+            <div class="job-table-wrap">
+              <table>
+                <thead><tr><th>状态</th><th>回执与模式</th><th>提交时间</th><th>内容预览</th><th>序号</th><th>操作</th></tr></thead>
+                <tbody id="job-list"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="admin-panel" id="panel-config">
+          <div class="config-intro">
+            <span>OPENAI STANDARD API</span>
+            <h2>标准接口设置</h2>
+            <p>配置保存在服务器，不会下发到客户浏览器。API Key使用服务器密钥加密保存。</p>
+          </div>
+          <form class="config-form" id="config-form">
+            <label class="wide">API Base URL
+              <input id="base-url" type="url" placeholder="https://api.openai.com/v1" required>
+              <small>填写到 /v1；OpenAI可用 Responses，MiniMax等兼容接口可用 Chat Completions。</small>
+            </label>
+            <label class="wide">API Key
+              <input id="api-key" type="password" placeholder="留空表示继续使用已保存的 Key" autocomplete="new-password">
+              <small id="api-key-state">尚未保存</small>
+            </label>
+            <label>模型名称
+              <input id="model" type="text" placeholder="填写接口支持的模型名称" required>
+            </label>
+            <label>接口模式
+              <select id="api-mode">
+                <option value="auto">自动识别</option>
+                <option value="responses">Responses API</option>
+                <option value="chat">Chat Completions</option>
+              </select>
+            </label>
+            <label>最大输出 Token
+              <input id="max-output-tokens" type="number" min="600" max="65536" step="1024" value="65536">
+              <small>MiniMax-M3 使用 65536，为完整 thinking 预留空间；最终投诉正文仍由服务器硬性限制在 1950 字符内。</small>
+            </label>
+            <label>重复文案重试次数
+              <input id="retries" type="number" min="0" max="4" value="2">
+            </label>
+            <label class="switch-row">允许客户提交
+              <input id="enabled" type="checkbox"><span></span>
+            </label>
+            <div class="config-actions wide">
+              <button class="test-button" id="test-config" type="button">测试接口</button>
+              <button class="save-button" type="submit">保存并启用设置</button>
+            </div>
+            <p class="config-message wide" id="config-message"></p>
+          </form>
+          <div class="config-notes">
+            <article><b>01</b><div><strong>串行执行</strong><p>无论接口允许多高并发，本系统始终只运行一个生成任务，并按近期平均耗时向客户显示预计完成时间。</p></div></article>
+            <article><b>02</b><div><strong>历史去重</strong><p>同一客户过去五次结果会用于相似度检查，重复时自动重新生成。</p></div></article>
+            <article><b>03</b><div><strong>回执领取</strong><p>每次提交立即生成唯一回执；任务和完整结果保存72小时，客户可跨设备凭号领取。</p></div></article>
+            <article><b>04</b><div><strong>相似案例快审</strong><p>与匿名案例指纹相似度达到90%时，先让AI审核已有文案是否适用；不适用则自动进入完整生成。</p></div></article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="./refund-agent-admin.js?v=20260731-5" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "refund-complaint-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check refund-agent.js && node --check refund-agent-admin.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

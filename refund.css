@@ -482,6 +482,15 @@
   transition: opacity .25s ease, transform .25s ease;
 }
 .script-panel.is-active { opacity: 1; transform: translateY(0); }
+.ai-rejection-bridge { scroll-margin-top: 22px; margin-top: 28px; padding: 28px; border: 1px solid #111318; background: #f1f4ff; }
+.ai-rejection-heading > span { color: var(--refund-blue); font-size: .7rem; font-weight: 950; letter-spacing: .1em; }
+.ai-rejection-heading h3 { margin: 7px 0 9px; color: #111318; font-size: clamp(1.6rem, 4vw, 2.75rem); line-height: 1.04; letter-spacing: -.045em; }
+.ai-rejection-heading p { max-width: 850px; margin: 0; color: #555f70; line-height: 1.65; }
+.ai-rejection-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin: 22px 0 10px; padding: 0; border: 1px solid #c9d2ff; background: #fff; list-style: none; }
+.ai-rejection-steps li { display: flex; align-items: center; gap: 11px; padding: 15px; color: #485267; font-size: .82rem; font-weight: 800; }
+.ai-rejection-steps li + li { border-left: 1px solid #c9d2ff; }
+.ai-rejection-steps b { display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 auto; color: #111318; background: var(--refund-yellow); }
+.refund-agent-entry--embedded { margin: 18px 0 0; }
 .script-meta {
   display: grid;
   gap: 14px;
@@ -820,6 +829,67 @@
   font-size: .8rem;
   line-height: 1.55;
 }
+.refund-case-entry {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 14px;
+  overflow: hidden;
+  border: 2px solid #111;
+  color: #111;
+  background: var(--refund-yellow);
+  box-shadow: 7px 7px 0 #111;
+  text-decoration: none;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.refund-case-entry:hover {
+  color: #111;
+  box-shadow: 3px 3px 0 #111;
+  transform: translate(4px, 4px);
+}
+.refund-case-thumb {
+  display: block;
+  height: 106px;
+  overflow: hidden;
+  border: 2px solid #111;
+  background: #fff;
+}
+.refund-case-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(-2px);
+}
+.refund-case-entry-copy { display: block; }
+.refund-case-entry-copy small {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+.refund-case-entry-copy > strong {
+  display: block;
+  font-size: clamp(1.05rem, 3vw, 1.45rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.refund-case-entry-copy > span {
+  display: block;
+  margin-top: 7px;
+  color: #5c5300;
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.refund-case-entry-copy b {
+  display: inline-block;
+  margin-top: 8px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #111;
+  font-size: .76rem;
+}
 .escalation-scripts { display: grid; gap: 12px; }
 .escalation-card { border: 1px solid #dfe3e8; background: #fff; }
 .escalation-card--blue { border-color: #b5c1ff; }
@@ -1018,6 +1088,36 @@
 
 .official-form-pulse { animation: complaint-button-pulse 1.8s ease-in-out infinite; }
 
+.refund-agent-entry {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+  margin: 18px 0;
+  padding: 22px 26px;
+  border: 1px solid #111318;
+  color: #fff;
+  background: #2952e3;
+  text-decoration: none;
+  box-shadow: 7px 7px 0 #ffe000;
+}
+.refund-agent-entry:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 #ffe000; }
+.refund-agent-entry-number {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  color: #111318;
+  background: #ffe000;
+  font-size: 28px;
+  font-weight: 950;
+}
+.refund-agent-entry-copy { display: grid; gap: 5px; }
+.refund-agent-entry-copy small { color: #cbd4ff; font-weight: 850; }
+.refund-agent-entry-copy strong { font-size: clamp(1.2rem, 2.3vw, 1.85rem); }
+.refund-agent-entry-copy > span { max-width: 740px; color: #e0e5ff; line-height: 1.55; }
+.refund-agent-entry > b { white-space: nowrap; padding: 13px 15px; color: #111318; background: #fff; }
+
 @media (min-width: 720px) {
   .replacement-entry { grid-template-columns: minmax(0, 1fr) auto; }
   .refund-hero { grid-template-columns: minmax(0, 1fr) 250px; }
@@ -1065,6 +1165,14 @@
   .script-tabs { display: grid; grid-template-columns: repeat(2, 1fr); }
   .script-tab { padding-inline: 8px; font-size: .82rem; }
   .script-body { font-size: .78rem; overflow-wrap: anywhere; }
+  .ai-rejection-bridge { padding: 20px 16px; }
+  .ai-rejection-steps { grid-template-columns: 1fr; }
+  .ai-rejection-steps li + li { border-left: 0; border-top: 1px solid #c9d2ff; }
+  .refund-case-entry { grid-template-columns: 68px minmax(0, 1fr); padding: 10px; }
+  .refund-case-thumb { height: 92px; }
+  .refund-agent-entry { grid-template-columns: 56px minmax(0, 1fr); padding: 16px; gap: 14px; }
+  .refund-agent-entry-number { width: 56px; height: 56px; font-size: 22px; }
+  .refund-agent-entry > b { grid-column: 1 / -1; text-align: center; }
   .pac-figure figcaption { display: block; }
   .pac-figure figcaption span { display: block; margin-bottom: 3px; }
 }
