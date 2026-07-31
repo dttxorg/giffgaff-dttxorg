@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="粘贴完整退款投诉记录，由AI生成下一轮不重复的英文退款投诉回复。">
+    <title>AI 退款投诉助手</title>
+    <link rel="icon" href="./assets/avatar.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./refund-agent.css?v=20260731-7">
+  </head>
+  <body class="agent-page">
+    <main class="agent-shell">
+      <header class="agent-topbar">
+        <a class="agent-brand" href="https://gg.681218.xyz/refund.html">
+          <span><img src="./assets/avatar.jpg" alt="" width="42" height="42"></span>
+          <b>AI 退款投诉助手</b>
+        </a>
+        <nav>
+          <a href="https://gg.681218.xyz/refund.html">退款指南</a>
+          <a href="https://gg.681218.xyz/refund-cases.html">真实案例</a>
+          <a href="#refund-confirmed-follow">退款成功追问</a>
+        </nav>
+      </header>
+
+      <section class="agent-hero">
+        <div>
+          <p class="agent-kicker">REFUND COMPLAINT WRITER · 单通道排队</p>
+          <h1>把全部记录交给AI，<br><span>生成下一轮退款回复。</span></h1>
+          <p class="agent-lead">这里不是聊天窗口。请一次性粘贴从最早退款申请到客服最新回复的完整往来，系统只生成一份针对最新回复、推动退款与正式投诉的英文文案。</p>
+        </div>
+        <aside class="agent-purpose">
+          <span>唯一目标</span>
+          <strong>退还未使用的<br>付费 PAYG 余额</strong>
+          <p>不争论封号，不请求解封；持续要求余额核算、书面依据和正式投诉复核。</p>
+        </aside>
+      </section>
+
+      <section class="agent-flow" aria-label="使用步骤">
+        <article><b>01</b><div><strong>复制完整记录</strong><span>客户与客服双方都要保留</span></div></article>
+        <article><b>02</b><div><strong>进入全站队列</strong><span>同一时间只处理一份</span></div></article>
+        <article><b>03</b><div><strong>退款或取得 ADR Letter</strong><span>再转通信监察公署</span></div></article>
+      </section>
+
+      <section class="pac-baseline">
+        <b>PAC 已取得</b>
+        <p>系统默认所有案例已经申请并取得 PAC，以 Ofcom General Condition C7.7(d) 的携号转网剩余预付费余额退款义务为核心，不再反复询问 PAC。</p>
+      </section>
+
+      <section class="quota-notice" id="quota-notice" role="status" aria-live="polite" hidden>
+        <span>AI CAPACITY</span>
+        <div>
+          <b id="quota-notice-title">5 小时额度窗口正在恢复</b>
+          <p>当前暂停接收新任务，已填写的内容会保留在本页。额度恢复后页面会自动重新开放。</p>
+        </div>
+        <time id="quota-reset-time">正在计算恢复时间</time>
+      </section>
+
+      <section class="receipt-lookup" aria-labelledby="receipt-lookup-title">
+        <div>
+          <span>稍后领取</span>
+          <h2 id="receipt-lookup-title">已有回执编号？</h2>
+          <p>提交后可以关闭页面。回执保留 72 小时，回来输入编号即可查看排队状态或领取生成好的投诉文案。</p>
+        </div>
+        <form id="receipt-form">
+          <label class="sr-only" for="receipt-input">回执编号</label>
+          <input id="receipt-input" type="text" inputmode="text" autocomplete="off" maxlength="23" placeholder="RF-XXXX-XXXX-XXXX-XXXX">
+          <button type="submit">查询并领取 →</button>
+          <p id="receipt-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="agent-workspace">
+        <div class="agent-input-panel">
+          <div class="panel-heading">
+            <div>
+              <span>完整记录输入</span>
+              <div class="panel-title-row">
+                <h2>粘贴所有投诉往来</h2>
+                <details class="record-help">
+                  <summary aria-label="查看怎样复制完整记录">?</summary>
+                  <div>
+                    <b>只需要从头到尾完整复制</b>
+                    <p>打开与客服的 Conversation，从最早一条开始，把客服和你自己发送的所有内容一直复制到最新回复。保留日期、角色和英文原文，无需整理、翻译或改写。</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+            <span class="not-chat">不是问答聊天</span>
+          </div>
+          <div class="record-rule">
+            <b>必须包含</b>
+            <p>最早退款申请、每一次客服回复、你已经发送的每一次投诉，以及客服最新回复。请保留日期、Member/Agent角色和原始英文内容。</p>
+          </div>
+          <label class="activation-field" for="activation-date">
+            <span><b>SIM 激活日期</b><small>用于核对时间线和客服引用的天数门槛；PAC与C7.7(d)始终是退款主线</small></span>
+            <input id="activation-date" type="date" required>
+          </label>
+          <label class="sr-only" for="transcript">完整投诉记录</label>
+          <textarea id="transcript" maxlength="180000" spellcheck="false" placeholder="请从最早一条开始粘贴，例如：&#10;&#10;Member&#10;28 Jul 2026 14:58&#10;Hello...&#10;&#10;Agent&#10;29 Jul 2026 12:28&#10;Hi...&#10;&#10;一直粘贴到客服最新回复。"></textarea>
+          <div class="input-footer">
+            <span id="char-count">0 字</span>
+            <span>请删除银行卡完整号码、密码、验证码和 PAC 原码</span>
+          </div>
+          <label class="complete-check">
+            <input id="complete-check" type="checkbox">
+            <span><b>我确认已粘贴完整记录</b><small>不是一句问题，也没有只贴客服最后一段回复</small></span>
+          </label>
+          <button class="submit-job" id="submit-job" type="button" disabled>
+            <span>提交并进入排队</span><b>→</b>
+          </button>
+          <p class="submit-error" id="submit-error" role="alert"></p>
+        </div>
+
+        <aside class="queue-panel" aria-live="polite">
+          <div class="queue-idle" id="queue-idle">
+            <span class="queue-orbit"><i></i></span>
+            <p>当前处理规则</p>
+            <strong>全站只有 1 个生成通道</strong>
+            <small>多人同时提交时，后一位会等待前一位完整生成结束，不会并发抢占接口。</small>
+            <dl>
+              <div><dt>运行状态</dt><dd id="service-state">检查中</dd></div>
+              <div><dt>正在生成</dt><dd id="service-processing">—</dd></div>
+              <div><dt>等待人数</dt><dd id="service-queued">—</dd></div>
+              <div><dt>平均生成</dt><dd id="service-average">统计中</dd></div>
+            </dl>
+          </div>
+          <div class="queue-active" id="queue-active" hidden>
+            <p class="queue-label">任务状态</p>
+            <strong id="job-status-title">正在进入队列</strong>
+            <div class="receipt-card">
+              <span>领取回执编号</span>
+              <strong id="receipt-code">正在生成</strong>
+              <button id="copy-receipt" type="button">复制回执</button>
+              <small>请截图或复制保存。稍后可凭此编号回来领取，保留 72 小时。</small>
+            </div>
+            <div class="queue-number"><span>全站当前排位</span><b id="queue-position">—</b></div>
+            <p id="queue-explanation">正在确认排队位置……</p>
+            <div class="generation-flow" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <span></span><span></span><span></span>
+            </div>
+            <div class="generation-stage">
+              <span id="generation-stage-label">正在读取完整记录</span>
+              <b id="eta-primary">正在计算预计时间</b>
+              <small id="eta-basis">依据最近报告的平均生成耗时</small>
+            </div>
+            <div class="queue-track"><i id="queue-track-fill"></i></div>
+            <code id="job-id" hidden></code>
+          </div>
+        </aside>
+      </section>
+
+      <section class="agent-result" id="agent-result" hidden>
+        <div class="english-output">
+          <div class="output-toolbar">
+            <div class="output-language">
+              <span>EN</span>
+              <div><b>可直接发送给客服</b><small id="english-count">0 / 1950 字符</small></div>
+            </div>
+            <div class="reply-actions">
+              <button type="button" id="copy-english">一键复制投诉文案</button>
+              <a href="https://support2.giffgaff.com/app/ask/International-and-Roaming/Accessing-voicemail-while-abroad/form/" target="_blank" rel="noopener">打开投诉页去粘贴 ↗</a>
+            </div>
+          </div>
+          <pre id="english-reply"></pre>
+        </div>
+        <div class="chinese-output">
+          <div><span>中文总结</span><p id="chinese-summary"></p></div>
+          <div><span>下一步</span><p id="next-action"></p></div>
+        </div>
+        <section class="ombudsman-builder" id="ombudsman-builder" hidden>
+          <div class="ombudsman-heading">
+            <div>
+              <span>COMMUNICATIONS OMBUDSMAN</span>
+              <h3>通信监察公署投诉邮件</h3>
+              <p id="ombudsman-eligibility"></p>
+            </div>
+            <address><small>官方投诉邮箱</small><strong>enquiry@commsombudsman.org</strong></address>
+          </div>
+          <div class="missing-details">
+            <div>
+              <span>提交前补全</span>
+              <h4>填写邮件仍缺少的必要资料</h4>
+              <p>资料只在当前浏览器中用于替换邮件内容，不会再次发送给AI。</p>
+            </div>
+            <div class="missing-fields-grid" id="missing-fields"></div>
+          </div>
+          <div class="ombudsman-preview">
+            <label>邮件主题<input id="ombudsman-subject" type="text" readonly></label>
+            <label>邮件正文 <small id="ombudsman-count">0 / 1950 字符</small><textarea id="ombudsman-body" readonly></textarea></label>
+          </div>
+          <p class="ombudsman-error" id="ombudsman-error"></p>
+          <div class="ombudsman-actions">
+            <button id="copy-ombudsman" type="button" disabled>一键复制完整投诉邮件</button>
+            <a id="open-email" href="#" aria-disabled="true">打开邮箱并填写收件人 →</a>
+          </div>
+          <p class="ombudsman-note">合规 ADR Letter 应说明投诉未解决、可免费转交独立 ADR 机构并提供该机构信息；只给联系方式不等于 ADR Letter。没有合规最终回复时，正式投诉满 6 周也可进入 ADR。<a href="https://www.commsombudsman.org/our-process" target="_blank" rel="noopener">查看官方流程 ↗</a></p>
+        </section>
+        <button class="new-round" id="new-round" type="button">客服有新回复，重新粘贴完整记录 →</button>
+      </section>
+
+      <section class="refund-confirmed-follow" id="refund-confirmed-follow" aria-labelledby="refund-confirmed-title">
+        <div class="confirmed-follow-heading">
+          <div>
+            <span>REFUND CONFIRMED · 后续追问</span>
+            <h2 id="refund-confirmed-title">收到退款成功邮件后，先等两天</h2>
+            <p>给官方退款记录和支付通道留出同步时间。满两天后，如果邮件仍没有写清退款金额、被排除的余额或退到了哪张卡，再复制下面的话术提交。</p>
+          </div>
+          <strong><b>+2</b><span>天后再提交</span></strong>
+        </div>
+        <div class="confirmed-follow-steps" aria-label="退款成功后的追问时间">
+          <article><b>当天</b><span>保存退款成功邮件，不要立即重复追问</span></article>
+          <article><b>等待两天</b><span>让金额、退款流水和原支付方式完成同步</span></article>
+          <article><b>两天后</b><span>信息仍不完整，再发送下方追问文案</span></article>
+        </div>
+        <div class="confirmed-follow-template">
+          <div class="confirmed-follow-toolbar">
+            <div><span>EN</span><b>两天后可直接发送给客服</b></div>
+            <div>
+              <button id="copy-refund-follow" type="button">一键复制追问文案</button>
+              <a href="https://support2.giffgaff.com/app/ask/International-and-Roaming/Accessing-voicemail-while-abroad/form/" target="_blank" rel="noopener">打开投诉页去粘贴 ↗</a>
+            </div>
+          </div>
+          <pre id="refund-follow-script">Thank you for confirming the refund.
+
+It has now been two days since I received the refund confirmation. Please provide:
+1. the total amount refunded;
+2. a full breakdown showing paid top-up credit, plan refund, and any bonus/promotional credit excluded;
+3. the refund transaction/reference number and processing date;
+4. the payment method used, including the card type and last four digits only; and
+5. the date by which the funds should appear.
+
+If any amount has been excluded, please identify the relevant term or policy and explain the calculation.
+
+Thank you.</pre>
+          <p><b>中文说明：</b>这段只在收到退款成功邮件满两天后使用，用来追问实际退款总额、余额拆分、退款流水、处理日期、银行卡类型和末四位，以及预计到账日期。</p>
+        </div>
+      </section>
+
+      <section class="agent-boundary">
+        <strong>系统不会生成重复模板</strong>
+        <p>同一浏览器此前生成的文案会参与相似度检查。内容过于相似时系统会自动重写，并要求每一轮针对客服最新理由加入新的核算要求、事实追问或投诉升级动作。</p>
+      </section>
+      <section class="agent-memory">
+        <span>ANONYMOUS EXPERIENCE MEMORY</span>
+        <strong>不同拒绝理由，会沉淀为匿名策略经验</strong>
+        <p>系统只保存匿名策略与经过脱敏的文案指纹。新记录与案例库达到 90% 相似度时先进入快速适用性复核；匹配成立就调用既有论证并按本案事实校正，匹配不成立再进行完整生成。</p>
+      </section>
+
+      <footer class="agent-footer">
+        <p>AI生成内容需要客户发送前核对日期、金额及账户事实。接口由站长在管理后台配置。</p>
+        <a href="./refund-agent-admin.html">管理后台</a>
+      </footer>
+    </main>
+    <div class="agent-toast" id="agent-toast" role="status">英文文案已复制</div>
+    <script src="./refund-agent.js?v=20260731-8" type="module"></script>
+  </body>
+</html>

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="giffgaff 账号停用后退款操作指南：14 天内取消、14 天后余额退款、PAC 获取与退款到账追问英文话术。">
+    <meta name="description" content="giffgaff 账号停用后退款操作指南：获取 PAC、选择首次退款投诉话术；客服拒绝后把完整记录交给 AI 生成下一轮回复。">
     <title>账号停用后退款指南 · giffgaff</title>
     <link rel="icon" href="./assets/avatar.jpg" type="image/jpeg">
     <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./refund.css">
+    <link rel="stylesheet" href="./refund.css?v=20260731-8">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R20PEX1LN4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -29,9 +29,9 @@
         <nav class="nav no-mobile" aria-label="本页导航">
           <a href="#complaint-entry">投诉入口</a>
           <a href="#pac">获取 PAC</a>
-          <a href="#scripts">退款话术</a>
-          <a href="#rejected">拒绝后追款</a>
-          <a href="#follow-up">到账追问</a>
+          <a href="#scripts">首次话术</a>
+          <a href="#ai-after-rejection">被拒后用 AI</a>
+          <a href="./refund-cases.html">退款案例</a>
         </nav>
       </header>
 
@@ -52,6 +52,8 @@
           <div class="hero-actions">
             <a class="primary-cta official-form-pulse" href="https://support2.giffgaff.com/app/ask/International-and-Roaming/Accessing-voicemail-while-abroad/form/" target="_blank" rel="noopener">打开官方投诉表单 ↗</a>
             <a class="ghost-cta" href="#pac">我先要 PAC</a>
+            <a class="ghost-cta" href="./refund-cases.html">真实退款案例</a>
+            <a class="ghost-cta" href="#ai-after-rejection">被拒后用 AI</a>
             <a class="ghost-cta" href="#top-wechat">微信售后</a>
           </div>
         </div>
@@ -241,13 +243,25 @@
             </figure>
           </div>
         </div>
+
+        <a class="refund-case-entry" href="./refund-cases.html" aria-label="查看退款案例 001">
+          <span class="refund-case-thumb">
+            <img src="./assets/refund/cases/case-001-complaint-escalated.png" alt="" width="509" height="1035" loading="lazy">
+          </span>
+          <span class="refund-case-entry-copy">
+            <small>完整沟通案例 001 · 第一阶段已进入投诉</small>
+            <strong>查看真实记录：首次被拒后如何进入正式投诉</strong>
+            <span>完整英文往来按客服页面样式复原，并提供中文翻译和阶段分析；实际被拒后的新回复请交给下方 AI 处理。</span>
+            <b>查看完整退款案例 →</b>
+          </span>
+        </a>
       </section>
 
       <section class="refund-section scripts-section reveal" id="scripts" aria-labelledby="scripts-title">
         <div class="section-heading">
-          <span>03 · 发申请</span>
-          <h2 id="scripts-title">选择退款话术</h2>
-          <p>话术已按登录账号提交的场景写好，一键复制即可。账号资料、余额和历史沟通由客服直接从账户记录中核对，无需上传附件。</p>
+          <span>03 · 第一次投诉</span>
+          <h2 id="scripts-title">选择第一次退款话术</h2>
+          <p>这里只保留第一次提交所需的话术。按 SIM 激活是否超过 14 天选择并复制；客服拒绝后，不再套用固定模板，直接使用下方 AI 投诉助手。</p>
         </div>
 
         <div class="script-tabs" role="tablist" aria-label="退款话术类型">
@@ -316,180 +330,26 @@ Thank you.</div>
           <p class="script-tip"><b>为什么更有利：</b>直接引用当前官方停用退款说明；同时锁定 PAC、余额拆分、原支付方式、case reference 与升级路径。</p>
         </article>
 
-      </section>
-
-      <section class="refund-section rejected-section reveal" id="rejected" aria-labelledby="rejected-title">
-        <div class="section-heading">
-          <span>04 · 客服拒绝后</span>
-          <h2 id="rejected-title">第一次被拒，不代表结束</h2>
-          <p>不要反复发送同一句。按“要求书面依据 → 正式投诉 → Deadlock / Ombudsman”逐级推进。</p>
-        </div>
-
-        <div class="rejection-ladder" aria-label="退款被拒后的升级顺序">
-          <article><span>1</span><div><strong>要求复核</strong><p>让客服写明拒绝理由、适用条款和余额计算。</p></div></article>
-          <article><span>2</span><div><strong>正式投诉</strong><p>已有 agent case 后提交 complaint，索取投诉编号。</p></div></article>
-          <article><span>3</span><div><strong>要求最终立场</strong><p>仍不解决时索取 deadlock letter，保留向 Communications Ombudsman 提交的权利。</p></div></article>
-        </div>
-
-        <div class="escalation-scripts">
-          <article class="escalation-card">
-            <div class="escalation-head">
-              <div><span>ROUND 1</span><h3>客服第一次拒绝：要求书面复核</h3></div>
-              <button class="copy-button" type="button" data-copy-target="reconsider-script">复制话术</button>
-            </div>
-            <div class="script-body" id="reconsider-script">Thank you for your reply. I do not accept the refusal as currently explained, and I am asking for a manual review of the decision.
-
-Your published help guidance states that members may contact an agent to request a refund of credit remaining at the time of deactivation. Your refund guidance also states that unused credit may be returned when a member moves their number to another network.
-
-Please provide:
-1. the exact reason my refund has been refused;
-2. the specific term or policy relied upon, including a link or quoted section;
-3. my balance immediately before disabling/deactivation;
-4. a transaction-level breakdown separating paid top-up credit from bonus/promotional credit;
-5. the calculation showing why each amount is refundable or excluded; and
-6. a manual review by a billing specialist or senior agent.
-
-Please preserve the original submission date shown in the case history and reply within the same case.
-
-Thank you.</div>
-            <div class="script-summary-zh">
-              <span>中文总结</span>
-              <p>客服第一次拒绝时，用这段要求人工复核。重点是让客服写清楚拒绝退款的具体理由、引用哪条规则、停用前余额是多少、充值余额和赠送余额如何划分，以及每笔金额为什么可退或不可退。</p>
-            </div>
-          </article>
-
-          <article class="escalation-card escalation-card--blue">
-            <div class="escalation-head">
-              <div><span>ROUND 2</span><h3>复核仍被拒：提交正式投诉</h3></div>
-              <button class="copy-button copy-button--dark" type="button" data-copy-target="complaint-script">复制投诉话术</button>
-            </div>
-            <div class="script-body" id="complaint-script">Subject: Formal complaint — refusal to refund remaining PAYG credit
-
-Hello Member Relations,
-
-I am raising a formal complaint following the agent team's refusal to refund the eligible remaining Pay As You Go credit on my disabled/deactivated account.
-
-This complaint is being submitted while I am signed in. Please refer to my account details, balance, original refund request and complete agent correspondence already held in the account history.
-
-I submitted the original refund request promptly after deactivation. The exact submission date is already recorded in the account history. I have asked the agent team to identify the applicable term, provide a full balance breakdown and explain the calculation, but the matter remains unresolved.
-
-To resolve this complaint, please:
-1. conduct an independent review of the agent decision;
-2. refund all eligible paid top-up credit to the original payment method;
-3. provide the complete balance and transaction breakdown;
-4. explain every excluded amount by reference to the applicable term;
-5. confirm my PAC/number remains preserved where applicable; and
-6. provide a complaint reference number and written outcome.
-
-Please retain the original refund-request date when assessing any time limit. All relevant account details, balance records, payment history and previous correspondence are already available in the signed-in account history, so please assess this complaint using those records.
-
-Thank you.</div>
-            <div class="script-summary-zh">
-              <span>中文总结</span>
-              <p>这是提交给 Member Relations 的通用正式投诉。内容说明普通客服已经拒绝退款，要求投诉部门独立复核、退还符合条件的充值余额、给出完整计算和条款依据、保留 PAC，并提供正式投诉编号及书面处理结果。账户资料和沟通历史由官方从登录账号中核对，不需要上传附件。</p>
-            </div>
-            <a class="complaint-link" href="https://support2.giffgaff.com/app/ask/International-and-Roaming/Accessing-voicemail-while-abroad/form/" target="_blank" rel="noopener">打开正式投诉入口 ↗</a>
-          </article>
-
-          <article class="escalation-card escalation-card--dark">
-            <div class="escalation-head">
-              <div><span>ROUND 3</span><h3>正式投诉仍被拒：索取 Deadlock Letter</h3></div>
-              <button class="copy-button" type="button" data-copy-target="deadlock-script">复制话术</button>
-            </div>
-            <div class="script-body script-body--dark" id="deadlock-script">Thank you for the complaint outcome. I do not agree that this matter has been resolved.
-
-Please keep this complaint open and arrange a final review of the refund decision and balance calculation.
-
-If this is giffgaff's final position and no further internal review will be offered, please issue a deadlock letter confirming:
-1. giffgaff's final decision;
-2. the reasons and terms relied upon;
-3. the amount in dispute;
-4. the date the complaint was first raised; and
-5. my right to refer the matter to the Communications Ombudsman.
-
-If the complaint remains unresolved six weeks after it was raised, I intend to submit the complete case record to the Communications Ombudsman.
-
-Please respond in writing and retain all account, balance, payment and case records relevant to this complaint.
-
-Thank you.</div>
-            <div class="script-summary-zh script-summary-zh--dark">
-              <span>中文总结</span>
-              <p>正式投诉仍被拒后，用这段表示不接受结案，并要求最后一次复核。如果 giffgaff 坚持最终决定，就要求出具 Deadlock Letter，写明最终立场、拒绝理由、争议金额和投诉日期，以便向 Communications Ombudsman 继续申诉。</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="quick-replies" aria-labelledby="quick-title">
-          <div class="quick-title">
-            <span>客服常见理由</span>
-            <h3 id="quick-title">三句针对性补充</h3>
+        <div class="ai-rejection-bridge" id="ai-after-rejection">
+          <div class="ai-rejection-heading">
+            <span>第一次话术提交后</span>
+            <h3>客服拒绝退款，就把完整往来交给 AI</h3>
+            <p>不要继续复制通用的第二、第三轮模板。把从第一次退款申请到客服最新拒绝回复的全部记录原样粘贴，AI 会针对本次拒绝理由生成下一轮英文投诉文案。</p>
           </div>
-          <article>
-            <strong>“已经超过 14 天”</strong>
-            <p id="reply-14">I am not relying solely on the 14-day cancellation period. I am requesting the eligible PAYG credit remaining at deactivation under your published deactivation and refund guidance. Please assess that request separately.</p>
-            <button class="mini-copy" type="button" data-copy-target="reply-14">复制</button>
-          </article>
-          <article>
-            <strong>“余额都是赠送的”</strong>
-            <p id="reply-bonus">Please provide the transaction ledger showing which amounts were paid top-up credit and which were promotional. Please do not classify the entire balance as promotional without a transaction-level breakdown.</p>
-            <button class="mini-copy" type="button" data-copy-target="reply-bonus">复制</button>
-          </article>
-          <article>
-            <strong>“账号停用，所以余额作废”</strong>
-            <p id="reply-disabled">Please identify the exact term supporting forfeiture and confirm the recorded deactivation date. My request was submitted within 30 days of deactivation, so please reassess it using the account records already available to you.</p>
-            <button class="mini-copy" type="button" data-copy-target="reply-disabled">复制</button>
-          </article>
-        </div>
-
-        <aside class="wechat-help" aria-labelledby="wechat-help-title">
-          <div class="wechat-help-copy">
-            <span>看不懂客服回复？</span>
-            <h3 id="wechat-help-title">把截图发给我，帮你选下一段话术</h3>
-            <p>请一起发：客服完整回复、停用日期和余额截图。涉及卡号时只保留末四位。</p>
-            <div class="wechat-id-row">
-              <span>微信 ID</span>
-              <code id="wechat-id">oscar_2026year</code>
-              <button class="mini-copy mini-copy--light" type="button" data-copy-target="wechat-id">复制微信号</button>
-            </div>
-          </div>
-          <div class="wechat-help-qr">
-            <img src="./assets/wechat-qr.jpg" alt="微信客服猫不肥二维码" width="220" height="220" loading="lazy">
-            <p>微信 · 猫不肥</p>
-          </div>
-        </aside>
-      </section>
-
-      <section class="refund-section follow-section reveal" id="follow-up" aria-labelledby="follow-title">
-        <div class="section-heading">
-          <span>05 · 追到账</span>
-          <h2 id="follow-title">已确认退款？继续问清金额和卡</h2>
-        </div>
-        <article class="follow-card">
-          <div class="follow-top">
-            <span>FOLLOW-UP</span>
-            <button class="copy-button copy-button--dark" type="button" data-copy-target="follow-script">复制追问话术</button>
-          </div>
-          <div class="script-body script-body--dark" id="follow-script">Thank you for confirming the refund.
-
-Please provide:
-1. the total amount refunded;
-2. a full breakdown showing paid top-up credit, plan refund, and any bonus/promotional credit excluded;
-3. the refund transaction/reference number and processing date;
-4. the payment method used, including the card type and last four digits only; and
-5. the date by which the funds should appear.
-
-If any amount has been excluded, please identify the relevant term or policy and explain the calculation.
-
-Thank you.</div>
-          <div class="script-summary-zh script-summary-zh--dark">
-            <span>中文总结</span>
-            <p>客服已经同意退款后，用这段继续确认：实际退款总额、充值余额与套餐退款的拆分、被排除的赠送余额、退款流水号、处理日期、银行卡类型和末四位，以及最晚到账日期。</p>
-          </div>
-        </article>
-        <div class="timing-row">
-          <article><strong>24h</strong><p>agent 通常在 24 小时内回复</p></article>
-          <article><strong>5 days</strong><p>正式投诉目标回复时间</p></article>
-          <article><strong>3–5 days</strong><p>退款发出后常见银行到账时间</p></article>
+          <ol class="ai-rejection-steps">
+            <li><b>1</b><span>先发送上面的首次话术</span></li>
+            <li><b>2</b><span>保存客服的完整回复</span></li>
+            <li><b>3</b><span>被拒后交给 AI 继续推进</span></li>
+          </ol>
+          <a class="refund-agent-entry refund-agent-entry--embedded" href="https://ai.681218.xyz/">
+            <span class="refund-agent-entry-number">AI</span>
+            <span class="refund-agent-entry-copy">
+              <small>被拒后专用 · 完整记录生成 · 全站单通道排队</small>
+              <strong>退款被拒？让 AI 针对客服最新理由继续投诉</strong>
+              <span>一次性粘贴客户与客服双方从头到尾的全部英文往来，系统会避免重复文案，并继续推进正式投诉、最终回复与监察公署路径。</span>
+            </span>
+            <b>打开 AI 投诉助手 →</b>
+          </a>
         </div>
       </section>
 
