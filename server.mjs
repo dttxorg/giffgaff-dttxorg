@@ -75,6 +75,16 @@ const mime = {
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+    const forwardedHost = String(req.headers["x-forwarded-host"] || req.headers.host || "")
+      .split(",")[0].trim().replace(/:\d+$/, "").toLowerCase();
+    if (forwardedHost === "ai.681218.xyz" && url.pathname === "/refund.html") {
+      res.writeHead(302, {
+        "Location": "https://gg.681218.xyz/refund.html",
+        "Cache-Control": "no-store"
+      });
+      res.end();
+      return;
+    }
     if (url.pathname.startsWith("/api/")) {
       await api(req, res, url);
       return;
