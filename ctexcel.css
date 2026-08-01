@@ -975,6 +975,7 @@ a {
 }
 
 .rate-table-wrap {
+  min-width: 0;
   padding: 28px 34px;
 }
 
@@ -1566,6 +1567,7 @@ a {
   .hero {
     padding: 48px 0 30px;
     gap: 26px;
+    overflow: hidden;
   }
 
   .hero h1,
