@@ -2,9 +2,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/ctexcel.html", "destination": "/cte", "permanent": true },
-    { "source": "/ctexcel-faq.html", "destination": "/cte/faq", "permanent": true },
-    { "source": "/giffgaff.html", "destination": "/gg", "permanent": true }
+    { "source": "/ctexcel", "destination": "/cte", "permanent": true },
+    { "source": "/ctexcel-faq", "destination": "/cte/faq", "permanent": true },
+    { "source": "/giffgaff", "destination": "/gg", "permanent": true }
   ],
   "headers": [
     {

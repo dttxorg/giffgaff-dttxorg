@@ -57,6 +57,7 @@ const cmlinkGuide = readFileSync(join(root, "cmlink/keep-number/index.html"), "u
 const ggHtml = readFileSync(join(root, "gg/index.html"), "utf8");
 const css = readFileSync(join(root, "carrier-site.css"), "utf8");
 const allNew = pages.map(([, file]) => readFileSync(join(root, file), "utf8")).join("\n");
+const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
 
 const sectionCount = (rootHtml.match(/<section\b/g) || []).length;
 if (sectionCount > 7) fail("short CTExcel homepage", `${sectionCount} sections exceeds 7`);
@@ -91,6 +92,12 @@ pass("motion system", "scroll reveal, keyframes, reduced-motion fallback");
 
 if (!existsSync(join(root, "assets/cmlink/cmlink-logo.png"))) fail("CMLink asset", "logo missing");
 else pass("CMLink asset", "official wordmark cached locally");
+
+const redirects = new Map(vercel.redirects.map((item) => [item.source, item.destination]));
+for (const [source, destination] of [["/ctexcel", "/cte"], ["/ctexcel-faq", "/cte/faq"], ["/giffgaff", "/gg"]]) {
+  if (redirects.get(source) !== destination) fail("legacy redirects", `${source} does not target ${destination}`);
+}
+pass("legacy redirects", "cleanUrls-compatible sources target new carrier routes");
 
 if (failures.length) {
   console.error(`\nFAILURES ${failures.length}`);
