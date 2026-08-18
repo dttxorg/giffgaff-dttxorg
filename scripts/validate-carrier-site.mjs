@@ -68,13 +68,21 @@ for (const text of ["¥128", "/cte/guide/", "/cte/porting/", "/cte/faq/", "/cmli
 }
 pass("CTExcel homepage content", "product, subpages, and carrier links present");
 
-for (const text of ["¥60", "£1", "£15/年", "365 天", "/cmlink/keep-number/", "/cmlink/faq/"]) {
+for (const text of ["¥60", "首月", "1GB", "30 分钟", "30 短信", "£15/年", "365 天", "/cmlink/keep-number/", "/cmlink/faq/"]) {
   if (!cmlinkHtml.includes(text)) fail("CMLink product facts", `missing ${text}`);
 }
 for (const text of ["30 天", "不会自动续订", "£15/年无忧保号套餐"]) {
   if (!cmlinkGuide.includes(text)) fail("CMLink keep-number guide", `missing ${text}`);
 }
-pass("CMLink product route", "¥60, £1, 30-day window, and £15/year present");
+pass("CMLink product route", "¥60, first-month allowance, 30-day window, and £15/year present");
+
+if (/£1(?![0-9])/.test(allNew)) fail("CMLink wording", "standalone £1 wording found");
+else pass("CMLink wording", "standalone £1 wording removed");
+
+for (const phrase of ["运营商独立分类", "三个入口，互相连接", "主页保持简洁", "内容已经拆开", "每个品牌都有自己的页面"]) {
+  if (allNew.includes(phrase)) fail("customer-facing copy", `internal implementation note found: ${phrase}`);
+}
+pass("customer-facing copy", "internal implementation notes removed");
 
 for (const text of ["/refund.html", "/refund-cases.html", "https://ai.681218.xyz/refund-agent.html"]) {
   if (!ggHtml.includes(text)) fail("giffgaff hub", `missing ${text}`);
@@ -92,6 +100,12 @@ pass("motion system", "scroll reveal, keyframes, reduced-motion fallback");
 
 if (!existsSync(join(root, "assets/cmlink/cmlink-logo.png"))) fail("CMLink asset", "logo missing");
 else pass("CMLink asset", "official wordmark cached locally");
+
+if (!existsSync(join(root, "assets/wechat-qr-only.png"))) fail("WeChat QR asset", "cropped QR missing");
+else pass("WeChat QR asset", "square QR-only asset present");
+
+if (!/aspect-ratio:\s*9\s*\/\s*19/.test(css)) fail("phone mockup", "realistic 9:19 ratio missing");
+else pass("phone mockup", "realistic 9:19 ratio present");
 
 const redirects = new Map(vercel.redirects.map((item) => [item.source, item.destination]));
 for (const [source, destination] of [["/ctexcel", "/cte"], ["/ctexcel-faq", "/cte/faq"], ["/giffgaff", "/gg"]]) {
