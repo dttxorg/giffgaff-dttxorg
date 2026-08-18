@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check server.mjs && node --check refund-agent.js && node --check refund-agent-admin.js"
+    "check": "node --check server.mjs && node --check refund-agent.js && node --check refund-agent-admin.js && node --check carrier-site.js && node scripts/validate-carrier-site.mjs"
   },
   "engines": {
     "node": ">=20"
