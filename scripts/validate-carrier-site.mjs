@@ -52,10 +52,15 @@ for (const [route, file] of pages) {
 }
 
 const rootHtml = readFileSync(join(root, "index.html"), "utf8");
+const cteGuide = readFileSync(join(root, "cte/guide/index.html"), "utf8");
+const ctePorting = readFileSync(join(root, "cte/porting/index.html"), "utf8");
+const cteFaq = readFileSync(join(root, "cte/faq/index.html"), "utf8");
 const cmlinkHtml = readFileSync(join(root, "cmlink/index.html"), "utf8");
 const cmlinkGuide = readFileSync(join(root, "cmlink/keep-number/index.html"), "utf8");
+const cmlinkFaq = readFileSync(join(root, "cmlink/faq/index.html"), "utf8");
 const ggHtml = readFileSync(join(root, "gg/index.html"), "utf8");
 const css = readFileSync(join(root, "carrier-site.css"), "utf8");
+const js = readFileSync(join(root, "carrier-site.js"), "utf8");
 const allNew = pages.map(([, file]) => readFileSync(join(root, file), "utf8")).join("\n");
 const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
 
@@ -71,12 +76,43 @@ pass("CTExcel homepage content", "product, subpages, and carrier links present")
 for (const text of ["¥60", "首月", "1GB", "30 分钟", "30 短信", "£15/年", "365 天", "/cmlink/keep-number/", "/cmlink/faq/"]) {
   if (!cmlinkHtml.includes(text)) fail("CMLink product facts", `missing ${text}`);
 }
-for (const text of ["30 天", "不会自动续订", "£15/年无忧保号套餐"]) {
+for (const text of ["30 天", "不会自动续订", "£15/年"]) {
   if (!cmlinkGuide.includes(text)) fail("CMLink keep-number guide", `missing ${text}`);
 }
 pass("CMLink product route", "¥60, first-month allowance, 30-day window, and £15/year present");
 
-if (/£1(?![0-9])/.test(allNew)) fail("CMLink wording", "standalone £1 wording found");
+for (const text of ["£0.20/分钟", "£0.05/分钟", "£0.10/条", "£0.005/MB", "约 ¥50", "接收短信", "免费"]) {
+  if (!cteGuide.includes(text)) fail("CTExcel roaming rates", `missing ${text}`);
+}
+if (!cteFaq.includes("price-table") || !cteFaq.includes("约 ¥0.05/MB")) {
+  fail("CTExcel FAQ rate answer", "full rate table is not present in FAQ");
+}
+pass("CTExcel roaming rates", "call, incoming call, SMS, free incoming SMS, and data rates present");
+
+for (const text of ["30p/分钟", "60p/分钟", "150p/分钟", "35p/条", "接收普通短信", "移动数据不按普通 PAYG", "中国 15GB", "中国 40GB"]) {
+  if (!cmlinkGuide.includes(text)) fail("CMLink roaming rates", `missing ${text}`);
+}
+if (!cmlinkFaq.includes("约 ¥3.5/条") || !cmlinkFaq.includes("跨国流量 3GB")) {
+  fail("CMLink FAQ rate answer", "full roaming and data-pack answer is not present");
+}
+pass("CMLink roaming rates", "China roaming calls, SMS, free incoming SMS, and data packs present");
+
+for (const [name, html] of [["CTExcel", cteFaq], ["CMLink", cmlinkFaq]]) {
+  for (const marker of ["data-faq-root", "data-faq-search", "data-faq-status", "data-faq-item", "data-faq-empty"]) {
+    if (!html.includes(marker)) fail(`${name} FAQ interaction`, `missing ${marker}`);
+  }
+}
+for (const marker of ["normalizeSearch", "找到 ${visibleCount} 个相关问题", "aria-pressed"]) {
+  if (!js.includes(marker)) fail("FAQ interaction script", `missing ${marker}`);
+}
+pass("FAQ interaction", "search filtering, empty state, status, and checklist behavior present");
+
+for (const text of ["PAC 自己保存", "不需要发给退款客服", "原 giffgaff 号码"]) {
+  if (!ctePorting.includes(text)) fail("PAC guidance", `missing ${text}`);
+}
+pass("PAC guidance", "customer-held PAC and independent refund route preserved");
+
+if (/(?:^|[^\d])£1(?:\s|<|体验|套餐)/.test(allNew)) fail("CMLink wording", "standalone £1 package wording found");
 else pass("CMLink wording", "standalone £1 wording removed");
 
 for (const phrase of ["运营商独立分类", "三个入口，互相连接", "主页保持简洁", "内容已经拆开", "每个品牌都有自己的页面"]) {
