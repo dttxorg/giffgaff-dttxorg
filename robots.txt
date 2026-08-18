@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://你的域名/sitemap.xml
+Sitemap: https://gg.681218.xyz/sitemap.xml
