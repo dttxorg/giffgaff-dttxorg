@@ -52,6 +52,7 @@ for (const [route, file] of pages) {
 }
 
 const rootHtml = readFileSync(join(root, "index.html"), "utf8");
+const cteHtml = readFileSync(join(root, "cte/index.html"), "utf8");
 const cteGuide = readFileSync(join(root, "cte/guide/index.html"), "utf8");
 const ctePorting = readFileSync(join(root, "cte/porting/index.html"), "utf8");
 const cteFaq = readFileSync(join(root, "cte/faq/index.html"), "utf8");
@@ -68,10 +69,23 @@ const sectionCount = (rootHtml.match(/<section\b/g) || []).length;
 if (sectionCount > 7) fail("short CTExcel homepage", `${sectionCount} sections exceeds 7`);
 else pass("short CTExcel homepage", `${sectionCount} sections`);
 
-for (const text of ["¥128", "/cte/guide/", "/cte/porting/", "/cte/faq/", "/cmlink/", "/gg/"]) {
+for (const text of ["¥178", "3GB", "1.5GB", "£5", "500", "85", "11 年 8 个月", "/cte/guide/", "/cte/porting/", "/cte/faq/", "/cmlink/", "/gg/"]) {
   if (!rootHtml.includes(text)) fail("CTExcel homepage content", `missing ${text}`);
 }
-pass("CTExcel homepage content", "product, subpages, and carrier links present");
+for (const text of ["¥178", "3GB", "1.5GB", "£5 话费", "500 分钟", "500 条", "约 85", "4,250 天", "11 年 8 个月"]) {
+  if (!cteHtml.includes(text)) fail("CTExcel overview content", `missing ${text}`);
+}
+const cteOfferBundle = [rootHtml, cteHtml, cteGuide, ctePorting, cteFaq].join("\n");
+for (const stale of ["¥128", "50GB", "2000", "200 分钟", "80 天", "第 80 天", "约 80"]) {
+  if (cteOfferBundle.includes(stale)) fail("CTExcel stale offer", `found ${stale}`);
+}
+for (const html of [rootHtml, cteHtml, cteGuide, ctePorting, cteFaq]) {
+  if (!html.includes("v=20260824-cte1")) fail("CTExcel asset version", "missing v=20260824-cte1");
+}
+pass("CTExcel homepage content", "¥178, 3GB package, £5 balance, 85-day cycle, subpages, and carrier links present");
+pass("CTExcel overview content", "package benefits and theoretical keep-number duration present");
+pass("CTExcel stale offer", "old ¥128/50GB/80-day offer removed");
+pass("CTExcel asset version", "all CTExcel pages use v=20260824-cte1");
 
 for (const text of ["¥60", "首月", "1GB", "30 分钟", "30 短信", "£15/年", "365 天", "/cmlink/keep-number/", "/cmlink/faq/"]) {
   if (!cmlinkHtml.includes(text)) fail("CMLink product facts", `missing ${text}`);
@@ -84,10 +98,14 @@ pass("CMLink product route", "¥60, first-month allowance, 30-day window, and £
 for (const text of ["£0.20/分钟", "£0.05/分钟", "£0.10/条", "£0.005/MB", "约 ¥50", "接收短信", "免费"]) {
   if (!cteGuide.includes(text)) fail("CTExcel roaming rates", `missing ${text}`);
 }
+for (const text of ["£5 ÷ £0.10", "50 × 85 天", "4,250 天", "11 年 8 个月"]) {
+  if (!cteGuide.includes(text) || !cteFaq.includes(text)) fail("CTExcel keep-number calculation", `missing ${text}`);
+}
 if (!cteFaq.includes("price-table") || !cteFaq.includes("约 ¥0.05/MB")) {
   fail("CTExcel FAQ rate answer", "full rate table is not present in FAQ");
 }
 pass("CTExcel roaming rates", "call, incoming call, SMS, free incoming SMS, and data rates present");
+pass("CTExcel keep-number calculation", "£5 balance, 50 SMS, 85-day cycle, and 4,250-day result present");
 
 for (const text of ["30p/分钟", "60p/分钟", "150p/分钟", "35p/条", "接收普通短信", "移动数据不按普通 PAYG", "中国 15GB", "中国 40GB"]) {
   if (!cmlinkGuide.includes(text)) fail("CMLink roaming rates", `missing ${text}`);
